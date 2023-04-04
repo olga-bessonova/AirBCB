@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginButton from './LoginButton';
+import logo from './logo.png';
 import './Navigation.css';
 
 function Navigation() {
@@ -25,7 +26,10 @@ function Navigation() {
   return (
     <header className="site-header">
       <NavLink exact to="/" className="nav-title">
-        <h3>airbbc</h3>
+        <div>
+          <img src={logo} alt="Logo" className="logo-img"/>
+          <h3>airbbc</h3>
+        </div>
       </NavLink>
       <div className="session-links">
         {sessionLinks}
