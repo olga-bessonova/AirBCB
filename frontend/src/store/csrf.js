@@ -4,12 +4,13 @@ async function csrfFetch(url, options = {}) {
   // set options.headers to an empty object if there is no headers
   options.headers = options.headers || {};
 
-  // if the options.method is not 'GET', then set the "Content-Type" header to
-  // "application/json" and set the "X-CSRF-Token" header to the value of
-  // "X-CSRF-TOKEN" in `sessionStorage`
+  // if the options.method is not 'GET' and the body is not form data, then set
+  // the "Content-Type" header to "application/json", and set the "CSRF-TOKEN"
+  // header to the value of "X-CSRF-TOKEN" in `sessionStorage`
   if (options.method.toUpperCase() !== "GET") {
-    options.headers["Content-Type"] =
-      options.headers["Content-Type"] || "application/json";
+    if (!options.headers["Content-Type"] && !(options.body instanceof FormData)) {
+      options.headers["Content-Type"] = "application/json";
+    }
     options.headers["X-CSRF-Token"] = sessionStorage.getItem("X-CSRF-Token");
   }
 
@@ -22,18 +23,7 @@ async function csrfFetch(url, options = {}) {
 
   // if the response status code is under 400, then return the response to the
   // next promise chain
-  return res;  
-};
-
-export function storeCSRFToken(response) {
-  const csrfToken = response.headers.get("X-CSRF-Token");
-  if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
-}
-
-export async function restoreCSRF() {
-  const response = await csrfFetch("/api/session");
-  storeCSRFToken(response);
-  return response;
+  return res;
 }
 
 export default csrfFetch;
