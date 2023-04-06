@@ -25,7 +25,7 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
   return (
     <>
       <button className='profile-button' onClick={toggleMenu}>
-        <i class="fa-solid fa-bars"></i>
+        <i className="fa-solid fa-bars"></i>
         <i className="fa-regular fa-user-circle" />
       </button>
 
@@ -34,7 +34,7 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
               <li onClick={()=> setShowLoginModal(true)}>Log in</li>
               <li onClick={()=> setShowSignupModal(true)}>Sign up</li>
               <li className='dropdown-divider'></li>
-              <li onClick={()=> setShowLoginModal(true)}>Airbbc your home</li>
+              <li onClick={()=> setShowLoginModal(true)}>Airbcb your home</li>
               <li onClick={()=> setShowLoginModal(true)}>Account</li>
           </ul>
       )}

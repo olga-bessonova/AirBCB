@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "bcrypt"
 gem "jbuilder"
 
+# AWS
+gem "aws-sdk-s3" 
+
 ruby "3.1.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

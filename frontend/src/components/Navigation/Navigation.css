@@ -1,3 +1,8 @@
+:root {
+  --grey-color: #9da09d;
+  --red-brand-color: #F95E5C;  
+}
+
 header.site-header {
   display: flex;
   justify-content: space-between;
@@ -17,12 +22,11 @@ header.site-header {
 
 .logo-img {
   align-items: center;
-  height: 50%;
   padding-right: 3px;
 }
 
 .logo-name {
-  color: #f83b5e;
+  color: var(--red-brand-color);
   font-size: 22px;
   font-family: circular-standard;
   font-weight: 900;
