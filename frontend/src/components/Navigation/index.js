@@ -41,7 +41,7 @@ const Navigation = ({showLoginModal, setShowLoginModal}) => {
       <NavLink className="nav-title" exact to="/" >
         <div className = "logo-box">
           <img className="logo-img" src={logo} alt="Logo"/>
-          <div className="logo-name">airbbc</div>
+          <div className="logo-name">airbcb</div>
         </div>
       </NavLink>
 

@@ -8,9 +8,10 @@ ApplicationRecord.transaction do
   ApplicationRecord.connection.reset_pk_sequence!('users')
 
   puts "Creating users..."
-  # Create one user with an easy to remember username, email, and password:
+  # Create one user with an easy to remember first_name, last_name, email and password:
   User.create!(
-    username: 'Demo', 
+    first_name: 'Demo', 
+    last_name: 'Demo', 
     email: 'demo@user.io', 
     password: 'password'
   )

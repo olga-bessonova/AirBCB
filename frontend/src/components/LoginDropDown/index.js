@@ -34,7 +34,7 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
               <li onClick={()=> setShowLoginModal(true)}>Log in</li>
               <li onClick={()=> setShowSignupModal(true)}>Sign up</li>
               <li className='dropdown-divider'></li>
-              <li onClick={()=> setShowLoginModal(true)}>Airbbc your home</li>
+              <li onClick={()=> setShowLoginModal(true)}>Airbcb your home</li>
               <li onClick={()=> setShowLoginModal(true)}>Account</li>
           </ul>
       )}
