@@ -1,18 +1,36 @@
 header.site-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin: 20px 0;
+  height: 80px;
+  width: 100%;
+  border-bottom: 1px #EAEAEA solid;
+  align-items: center;
+  padding: 0 80px 0 80px;
+  position: relative;
 }
 
-.nav-title {
-  color: black;
-  text-decoration: none; 
+.logo-box {
+  display: flex;
+  height: 80px;
+  align-items: center; 
 }
 
-.nav-title h1 {
-  font-weight: lighter;
-  font-size: 2rem;
+.logo-img {
+  align-items: center;
+  height: 50%;
+  padding-right: 3px;
+}
+
+.logo-name {
+  color: #f83b5e;
+  font-size: 22px;
+  font-family: circular-standard;
+  font-weight: 900;
+  letter-spacing: -.7px;
+}
+
+a {
+  text-decoration: none;
 }
 
 div.session-links {

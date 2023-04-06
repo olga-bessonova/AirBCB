@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import LoginButton from './LoginButton';
+import LoginDropDown from '../LoginDropDown';
 import logo from './logo.png';
 import './Navigation.css';
 
-function Navigation() {
+const Navigation = ({showLoginModal, setShowLoginModal}) => {
   const sessionUser = useSelector(state => state.session.user);
+  const [loginMessage, setLoginMessage] = useState(false);
+
+
+  let messageTimeout;
+  useEffect(() => {
+    if(loginMessage) {
+      messageTimeout = setTimeout(() => {
+        setLoginMessage(false);
+        clearTimeout(messageTimeout);
+      }, 3000)
+    }
+  },[loginMessage])
 
   let sessionLinks;
   if (sessionUser) {
@@ -16,24 +28,31 @@ function Navigation() {
     );
   } else {
     sessionLinks = (
-      <>
-        <LoginButton />
-        <NavLink to="/signup" className="button">Sign Up</NavLink>
-      </>
+      <LoginDropDown 
+        showLoginModal={showLoginModal}
+        setShowLoginModal={setShowLoginModal}
+        setLoginMessage={setLoginMessage}
+      />
     );
   }
 
   return (
     <header className="site-header">
-      <NavLink exact to="/" className="nav-title">
-        <div>
-          <img src={logo} alt="Logo" className="logo-img"/>
-          <h3>airbbc</h3>
+      <NavLink className="nav-title" exact to="/" >
+        <div className = "logo-box">
+          <img className="logo-img" src={logo} alt="Logo"/>
+          <div className="logo-name">airbbc</div>
         </div>
       </NavLink>
+
+      <div>
+        <h4>Search bar</h4>
+      </div>
+
       <div className="session-links">
         {sessionLinks}
       </div>
+
     </header>
   );
 }
