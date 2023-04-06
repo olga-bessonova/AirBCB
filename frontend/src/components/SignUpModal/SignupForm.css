@@ -1,6 +1,8 @@
 :root {
   --grey-color: #9da09d;
-  --red-brand-color: rgb(230, 30, 77)
+  /* --red-brand-color: rgb(230, 30, 77) */
+  --red-brand-color: #F95E5C;
+  
 }
 
 .close-button {

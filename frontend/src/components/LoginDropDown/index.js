@@ -25,7 +25,7 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
   return (
     <>
       <button className='profile-button' onClick={toggleMenu}>
-        <i class="fa-solid fa-bars"></i>
+        <i className="fa-solid fa-bars"></i>
         <i className="fa-regular fa-user-circle" />
       </button>
 
