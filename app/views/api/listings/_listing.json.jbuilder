@@ -1,6 +1,6 @@
 json.extract! listing,
   :id,
-  :users_id,
+  :user_id,
   :title,
   :description,
   :place_type,

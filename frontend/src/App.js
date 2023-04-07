@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Navigation from "./components/Navigation";
 
@@ -13,7 +13,12 @@ function App() {
          showLoginModal={showLoginModal} 
          setShowLoginModal={setShowLoginModal}
       />
-      {/* <Switch></Switch> */}
+      <Switch>
+        <Route path="/">
+          <ListingIndex/>
+        </Route>
+      </Switch>
+      
     </>
   );
 }

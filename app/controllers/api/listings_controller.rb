@@ -1,7 +1,7 @@
-class Api::UsersController < ApplicationController
+class Api::ListingsController < ApplicationController
 #  render :index, :show 
   def index
-    @listing = Listing.all
+    @listings = Listing.all
     render :index
   end
 

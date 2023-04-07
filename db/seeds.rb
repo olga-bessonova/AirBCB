@@ -16,6 +16,11 @@ ApplicationRecord.transaction do
     password: 'password'
   )
 
+  Listing.destroy_all
+  ApplicationRecord.connection.reset_pk_sequence!('listings')
+  Listing.create!(user_id:1, place_type: "entire_place", feature: "luxe", num_of_bath: 1, num_of_bed: 1, max_guests: 2, city: "New York", 
+    country: "USA", latitude: 70, longitude: 70, price: 100, description: "cool spot", title: "Apartment")
+
   # # More users
   # 10.times do 
   #   User.create!({

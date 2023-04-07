@@ -4,8 +4,8 @@ class Listing < ApplicationRecord
   validates :feature, inclusion: { in: %w[luxe omg tiny_homes trending amazing_pools bed_breakfast new creative_spaces adapted], 
               message: "feature must be one of: luxe, omg, tiny_homes, trending, amazing_pools, bed_breakfast, new, creative_spaces, adapted" }  
 
-  validates :num_of_bath, :num_of_bed, only_integer: true, numericality: {greater_than_or_equal_to: 0, message: "Minimum 0 bathrooms"}, presence: true
-  validates :max_guests, only_integer: true, numericality: {greater_than: 0, message: "Minimum 0 bedrooms"}, presence: true
+  validates :num_of_bath, :num_of_bed, numericality: {only_integer: true, greater_than_or_equal_to: 0, message: "Minimum 0 bathrooms"}, presence: true
+  validates :max_guests, numericality: {only_integer: true, greater_than: 0, message: "Minimum 0 bedrooms"}, presence: true
 
   validates :city, :country, :title, :description, presence: true
 
@@ -13,6 +13,6 @@ class Listing < ApplicationRecord
 
   validates :price, numericality: {greater_than_or_equal_to: 0, message: "Price must be >= 0"}, presence: true
 
-  belongs_to :users class_name: :User
+  belongs_to :user, class_name: :User
 
 end
