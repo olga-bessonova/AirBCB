@@ -1,7 +1,27 @@
+:root {
+  --grey-color: #9da09d;
+  --red-brand-color: #F95E5C;  
+}
 
+.close-button {
+  font-size: 15px;
+  text-align: left;
+}
 
+.login-modal {
+  width: 500;
+  height: 700;
+  margin: 15px;
+}
 
-.profile-button {
+.login-header {
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.profile-button, .demo-button-login {
   border: 1px #DDDDDD solid;
   border-radius: 20px;
   padding: 5px 10px;
@@ -9,7 +29,10 @@
   cursor: pointer;
 }
 
-.profile-button:hover {
+.profile-button:hover  {
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+}
+.demo-button-login:hover  {
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
 }
 

@@ -48,8 +48,8 @@ function LoginForm(props) {
         <i className="fa-solid fa-x"></i>
       </div>
 
-      <header>
-        <div className="login-header">Log in</div>
+      <header className="login-header">
+        <div className="login-header-text">Log in</div>
       </header>  
 
       <div className="welcome-message">

@@ -7,7 +7,7 @@ class Listing < ApplicationRecord
   validates :num_of_bath, :num_of_bed, only_integer: true, numericality: {greater_than_or_equal_to: 0, message: "Minimum 0 bathrooms"}, presence: true
   validates :max_guests, only_integer: true, numericality: {greater_than: 0, message: "Minimum 0 bedrooms"}, presence: true
 
-  validates :city, :country, :description, presence: true
+  validates :city, :country, :title, :description, presence: true
 
   validates :latitude, :longitude, presence: true, numericality: {greater_than_or_equal_to: -180, less_than_or_equal_to: 180, message: 'must be between -180 and 180'}
 

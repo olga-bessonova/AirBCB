@@ -1,0 +1,17 @@
+json.extract! listing,
+  :id,
+  :users_id,
+  :title,
+  :description,
+  :place_type,
+  :feature,
+  :num_of_bath,
+  :num_of_bed,
+  :max_guests,
+  :city,
+  :country,
+  :latitude,
+  :longitude,
+  :price,
+  :image
+
