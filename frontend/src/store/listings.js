@@ -7,17 +7,17 @@ export const REMOVE_LISTING = 'listings/REMOVE_LISTING';
 
 export const receiveListings = (listings) => ({
   type: RECEIVE_LISTINGS,
-  payload: listings
+  listings
 });
 
 export const receiveListing = (listing) => ({
   type: RECEIVE_LISTING,
-  payload: listing
+  listing
 });
 
 export const removeListing = (listingId) => ({
   type: REMOVE_LISTING,
-  payload: listingId
+  listingId
 });
 
 /* 
@@ -38,6 +38,7 @@ export const getListings = state => {
 // Below are fetch functions that call fetch to perform the desired db operation 
 // and dispatch the appropriate action upon a successful response
 export const fetchListings = () => async (dispatch) => {
+  debugger
   const response = await csrfFetch ('/api/listings');
 
   if (response.ok) {
@@ -98,6 +99,7 @@ export const deleteListing = listingId => async (dispatch) => {
 const listingsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_LISTINGS:
+      debugger
       return { ...action.listings };
     case RECEIVE_LISTING:
       return { ...state, [action.listing.id]: action.listing };
