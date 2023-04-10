@@ -1,0 +1,52 @@
+.listing-div {
+	min-height: 358px;
+	display: flex; 
+	align-items: start;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.listing-div:hover {
+	cursor: pointer;
+}
+
+.listing-image {
+	height: 100%;
+	width: 100%;
+	border-radius: 10px;
+	
+}
+
+#listing-image {
+	height: 100%; 
+	width: 100%;
+	border-radius: 10px;
+}
+
+@media (min-width: 0px) {
+  .listings-div {
+      grid-template-columns: 1fr;
+      padding-left: 40px;
+      padding-right: 40px;
+  }
+}
+
+@media (min-width: 600px) {
+  .listings-div {
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .listings-div {
+      grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.listings-div {
+  padding-top: 13px;
+  display: grid;
+  gap: 40px;
+  padding-bottom: 20px;
+  display: grid;
+}

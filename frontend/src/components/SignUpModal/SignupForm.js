@@ -43,7 +43,7 @@ const SignUpForm = (props) => {
   return (
       <div className="signup-modal">
         <div onClick={() => setShowSignupModal(false)} className="close-button">
-        <i className="fa-solid fa-x"></i>
+          <i className="fa-solid fa-x"></i>
         </div>
       
       <header className="signup-header">

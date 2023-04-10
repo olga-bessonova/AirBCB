@@ -53,14 +53,14 @@ function LoginForm(props) {
       </header>  
 
       <div className="welcome-message">
-        <h3>Welcome to Airbbc</h3>
+        <span>Welcome to Airbbc</span>
       </div>
       
       <form className="login-form" onSubmit={handleSubmit}>
         
         <div className="email-div">
             <input
-              className="email-input"
+              className="email-login-input"
               placeholder="Email"
               type="text"
               value={email}
@@ -94,7 +94,7 @@ function LoginForm(props) {
       </form>
 
       <div id="demo-button-div">
-        <button className="demo-button-login" onClick={handleDemo}>Continue with Demo User</button>
+        <button className="demo-button" onClick={handleDemo}>Continue with Demo User</button>
       </div>
     </div>
   );

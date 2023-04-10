@@ -1,25 +1,33 @@
-const ADD_USER = 'users/addUser';
-const ADD_USERS = 'users/addUsers';
+import csrfFetch from "./csrf";
 
-export const addUser = (user) => ({
-  type: ADD_USER,
-  payload: user
+const RECEIVE_USER = 'users/receiveUser';
+const RECEIVE_USERS = 'users/receiveUsers';
+
+export const receiveUser = (user) => ({
+  type: RECEIVE_USER,
+  user
 });
 
-export const addUsers = (users) => ({
-  type: ADD_USERS,
-  payload: users
+export const receiveUsers = (users) => ({
+  type: RECEIVE_USERS,
+  users
 });
 
-function usersReducer(state = {}, action) {
-  Object.freeze(state);
+export const fetchUser = userId => async (dispatch) => {
+  const response = await csrfFetch (`/api/users/${userId}`);
+
+  if (response.ok) {
+    const user = await response.json();
+    dispatch(receiveUser(user));
+  }
+};
+
+const usersReducer = (state = {}, action) => {
   switch (action.type) {
-    case ADD_USER:
-      const user = action.payload;
-      return { ...state, [user.id]: user };
-    case ADD_USERS:
-      const users = action.payload;
-      return { ...state, ...users };
+    case RECEIVE_USERS:
+      return { ...action.users };
+    case RECEIVE_USER:
+      return { ...state, [action.user.id]: action.user };
     default:
       return state;
   }

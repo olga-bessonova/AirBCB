@@ -1,14 +1,42 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-// import { deletePost } from '../store/posts';
+// import { deletePost,fetchListing } from '../store/posts';
+import { fetchListing } from '../../store/listings';
+import './ListingIndex.css';
+
+
+
 
 const ListingIndexItem = ({ listing }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleCLick = (e) => {
+    e.preventDefault();
+    dispatch(fetchListing(listing.id))
+  }
 
   return (
-    <li>
-      <p>{listing.title}</p>
-    </li>
+    <div onClick={()=> history.push(`/listings/${listing.id}`)}>
+
+    <Link to={`listings/${listing.id}`}>
+      <div className='listing-div' onClick={handleCLick}>
+        
+        <div className="listing-image"> 
+					<img id="listing-image" src={require("../../assets/listings/1/1.jpg")}></img>
+				</div>
+        
+        <div>
+          <p>{listing.title}</p>
+          <p>{listing.description.length < 35 ? listing.description : `${listing.description.slice(0,35)}...`}</p>
+          <p><span>{`$${listing.price}`}</span> night</p>           
+        </div>
+
+      </div>
+    </Link>
+    </div>
+      
   );
 };
 

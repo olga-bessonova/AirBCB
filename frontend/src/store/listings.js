@@ -38,7 +38,6 @@ export const getListings = state => {
 // Below are fetch functions that call fetch to perform the desired db operation 
 // and dispatch the appropriate action upon a successful response
 export const fetchListings = () => async (dispatch) => {
-  debugger
   const response = await csrfFetch ('/api/listings');
 
   if (response.ok) {
@@ -55,6 +54,13 @@ export const fetchListing = listingId => async (dispatch) => {
     dispatch(fetchListing(listing));
   }
 };
+
+// export const fetchListingsPlaceType = (types) => async dispatch => {
+//   const res = await csrfFetch(`/api/listings/types/${type}`)
+
+//   let data = await res.json()
+//   dispatch(receiveListings(data))
+// }
 
 export const createListing = listing => async (dispatch) => {
   const response = await csrfFetch(`/api/listings/`, {
@@ -99,7 +105,6 @@ export const deleteListing = listingId => async (dispatch) => {
 const listingsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_LISTINGS:
-      debugger
       return { ...action.listings };
     case RECEIVE_LISTING:
       return { ...state, [action.listing.id]: action.listing };
