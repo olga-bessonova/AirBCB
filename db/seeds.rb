@@ -4,11 +4,13 @@ ApplicationRecord.transaction do
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
   Listing.destroy_all
+  Review.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
   ApplicationRecord.connection.reset_pk_sequence!('listings')
+  ApplicationRecord.connection.reset_pk_sequence!('reviews')
 
   puts "Creating users..."
   # Create one user with an easy to remember first_name, last_name, email and password:
@@ -16,6 +18,13 @@ ApplicationRecord.transaction do
     first_name: 'Demo', 
     last_name: 'Demo', 
     email: 'demo@user.io', 
+    password: 'password'
+  )
+
+  user2 = User.create!(
+    first_name: 'Mary', 
+    last_name: 'Primavera', 
+    email: 'mary@user.io', 
     password: 'password'
   )
   # # More users
@@ -61,7 +70,7 @@ ApplicationRecord.transaction do
   )
 
   listing2 = Listing.create!(
-    user_id:1, 
+    user_id: 2, 
     title: "1 BD Luxury apartment with stunning views",
     description: "Amazing apartment with stunning skyline views to manhattan. don't look further if you need a quick access  to to Hudson Yards, Time Square, Hell's Kitchen, Javits Center, the Summit Vanderbilt , Bryant Park, The Vessel and many more", 
     place_type: "entire_place", 
@@ -77,7 +86,7 @@ ApplicationRecord.transaction do
   )
 
   listing3 = Listing.create!(
-    user_id:1, 
+    user_id: 2, 
     title: "Beautiful 1-bedroom - gorgeous view",
     description: "Beautiful, clean and stylish 1-bedroom apartment in Lincoln Center with a view to Hudson River, downtown Manhattan, and Broadway/Central Park. Modern building near many attractions! The apartment has a great layout, is spacious and everything is new. Come enjoy Manhattan in a peaceful area but steps away from major attractions.", 
     place_type: "entire_place", 
@@ -93,7 +102,7 @@ ApplicationRecord.transaction do
   )
 
   listing4 = Listing.create!(
-    user_id:1, 
+    user_id: 2, 
     title: "Condo in New York",
     description: "World-class luxury experience at an exclusive address. Perfectly situated in the middle of NYC, this stunning and generously spacious apartment with more than 1,200 sq. ft.(120m) offers every luxury and convenience to provide an exceptional living experience. Featuring floor to ceiling windows for stunning, unobstructed panoramic views of Manhattan’s skyline and beyond. Includes all digital & smart features, high speed Wi-Fi and in-unit washer/dryer.", 
     place_type: "entire_place", 
@@ -109,7 +118,7 @@ ApplicationRecord.transaction do
   )
 
   listing5 = Listing.create!(
-    user_id:1, 
+    user_id: 2, 
     title: "Condo in New York",
     description: "World-class luxury experience at an exclusive address. Perfectly situated in the middle of NYC, this stunning and generously spacious apartment with more than 1,200 sq. ft.(120m) offers every luxury and convenience to provide an exceptional living experience. Featuring floor to ceiling windows for stunning, unobstructed panoramic views of Manhattan’s skyline and beyond. Includes all digital & smart features, high speed Wi-Fi and in-unit washer/dryer.", 
     place_type: "entire_place", 
@@ -125,7 +134,7 @@ ApplicationRecord.transaction do
   )
 
   listing6 = Listing.create!(
-    user_id:1, 
+    user_id: 2, 
     title: "Condo in New York",
     description: "World-class luxury experience at an exclusive address. Perfectly situated in the middle of NYC, this stunning and generously spacious apartment with more than 1,200 sq. ft.(120m) offers every luxury and convenience to provide an exceptional living experience. Featuring floor to ceiling windows for stunning, unobstructed panoramic views of Manhattan’s skyline and beyond. Includes all digital & smart features, high speed Wi-Fi and in-unit washer/dryer.", 
     place_type: "entire_place", 
@@ -140,7 +149,7 @@ ApplicationRecord.transaction do
     price: 1200    
   )
   # listing4 = Listing.create!(
-  #   user_id:1, 
+  #   user_id: 2, 
   #   title: "",
   #   description: "", 
   #   place_type: "", 
@@ -154,6 +163,10 @@ ApplicationRecord.transaction do
   #   longitude: -73.99574981258051, 
   #   price: 1200    
   # )
+
+
+  puts "Creating reviews..."
+  # review1 = Review.create
 
   
 
