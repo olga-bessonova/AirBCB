@@ -47,11 +47,12 @@ export const fetchListings = () => async (dispatch) => {
 };
 
 export const fetchListing = listingId => async (dispatch) => {
+  // debugger
   const response = await csrfFetch (`/api/listings/${listingId}`);
 
   if (response.ok) {
     const listing = await response.json();
-    dispatch(fetchListing(listing));
+    dispatch(receiveListing(listing));
   }
 };
 

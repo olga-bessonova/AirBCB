@@ -6,9 +6,10 @@ class Api::ListingsController < ApplicationController
   end
 
   def show
+    # debugger
     @listing = Listing.find(params[:id])
-    # render :show    
-    render "/api/listings/show"    
+    render :show    
+    # render "/api/listings/show"    
   end
 
   def create

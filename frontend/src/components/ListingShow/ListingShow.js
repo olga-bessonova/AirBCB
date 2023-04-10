@@ -13,6 +13,7 @@ export const ListingShow = () => {
   // const user = useSelector(state => state.users ? state.users[userId] : null)
 
   useEffect(() => {
+    // debugger
     dispatch(fetchListing(listingId))
     }, [listingId, dispatch])
 
@@ -27,10 +28,10 @@ export const ListingShow = () => {
   return (
     <div className="listing-show-container">
       <section className="listing-show-header">
-        <h2>{listing.title}</h2>
+        <h2>{listing?.title}</h2>
         <ul>
-          <li>{listing.city}</li>
-          <li>{listing.country}</li>
+          <li>{listing?.city}</li>
+          <li>{listing?.country}</li>
         </ul>
       </section>
 
@@ -38,11 +39,11 @@ export const ListingShow = () => {
         <img id="listing-image1" src={require("../../assets/listings/1/1.jpg")}></img>
       </div>
 
-      <div>
+      {/* <div>
         <h2>{`${listing.placeType} hosted by `}</h2>
         <p>{listing.description}</p>
         <h2></h2>
-      </div>
+      </div> */}
     </div>    
   )
 }
