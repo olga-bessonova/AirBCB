@@ -21,6 +21,15 @@ export const fetchUser = userId => async (dispatch) => {
     dispatch(receiveUser(user));
   }
 };
+  
+export const fetchUsers = () => async dispatch => {
+  const response = await csrfFetch('/api/users');
+
+  if (response.ok) {
+      const data = await res.json();
+      dispatch(receiveUsers(data.users));
+  }
+};
 
 const usersReducer = (state = {}, action) => {
   switch (action.type) {
