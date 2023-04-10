@@ -17,22 +17,16 @@ export const ListingShow = () => {
 
 
   useEffect(() => {
-    // debugger
     dispatch(fetchListing(listingId));
-    dispatch(fetchUsers());
     }, [listingId, dispatch])
 
   useEffect(() => {
     dispatch(restoreSession())
     }, [])
 
-    // debugger
     if (!listing || !user) {
       return null
   }
-
-  // const userId = listing.user_id;
-  // const user = users[userId];
 
   return (
     <div className="listing-show-container">
