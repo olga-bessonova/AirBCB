@@ -2,28 +2,37 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { fetchListing, getListing } from "../../store/listings"
-import { fetchUser } from "../../store/users"
+import { fetchUser, fetchUsers } from "../../store/users"
+import { restoreSession } from "../../store/session"
 import './ListingShow.css'
 
 export const ListingShow = () => {
   const { listingId } = useParams();
   const dispatch = useDispatch();
   const listing = useSelector(getListing(listingId)); 
-  // const userId = listing ? listing.user_id : null 
-  // const user = useSelector(state => state.users ? state.users[userId] : null)
+  const userId = listing ? listing.userId : null 
+  const user = useSelector(state => state.users ? state.users[userId] : null);
+  // const users = useSelector(state => state.users);
+  // const currentUser = useSelector(state => state.session.user);
+
 
   useEffect(() => {
     // debugger
-    dispatch(fetchListing(listingId))
+    dispatch(fetchListing(listingId));
+    dispatch(fetchUsers());
     }, [listingId, dispatch])
 
-  // useEffect(() => {
-  //   dispatch(fetchUser(listing.userId))
-  //   }, [listing, dispatch])
+  useEffect(() => {
+    dispatch(restoreSession())
+    }, [])
 
-    if (!listing) {
+    // debugger
+    if (!listing || !user) {
       return null
   }
+
+  // const userId = listing.user_id;
+  // const user = users[userId];
 
   return (
     <div className="listing-show-container">
@@ -43,7 +52,7 @@ export const ListingShow = () => {
         <h2>{`${listing.placeType
           .split('_')
           .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(' ')} hosted by `}
+          .join(' ')} hosted by ${user.firstName}`}
         </h2>
         <p>{listing.description}</p>
         <h2></h2>

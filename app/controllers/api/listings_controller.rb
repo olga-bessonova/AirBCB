@@ -8,6 +8,7 @@ class Api::ListingsController < ApplicationController
   def show
     # debugger
     @listing = Listing.find(params[:id])
+    @user = User.find(@listing[:user_id])
     render :show    
     # render "/api/listings/show"    
   end

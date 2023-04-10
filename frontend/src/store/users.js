@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf";
+import { RECEIVE_LISTING } from "./listings.js"
 
 const RECEIVE_USER = 'users/receiveUser';
 const RECEIVE_USERS = 'users/receiveUsers';
@@ -26,7 +27,7 @@ export const fetchUsers = () => async dispatch => {
   const response = await csrfFetch('/api/users');
 
   if (response.ok) {
-      const data = await res.json();
+      const data = await response.json();
       dispatch(receiveUsers(data.users));
   }
 };
@@ -37,6 +38,8 @@ const usersReducer = (state = {}, action) => {
       return { ...action.users };
     case RECEIVE_USER:
       return { ...state, [action.user.id]: action.user };
+    case RECEIVE_LISTING:
+      return { ...state, [action.data.user.id]: action.data.user };
     default:
       return state;
   }
