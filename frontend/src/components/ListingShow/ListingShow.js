@@ -81,9 +81,9 @@ export const ListingShow = () => {
         <h2></h2>
       </div>
 
-      {/* <div className = "review-container">
+      <div className = "review-container">
         <ReviewForm />
-      </div> */}
+      </div>
 {/* 
       <div className = "reviews-container">
         <ListingReview 
