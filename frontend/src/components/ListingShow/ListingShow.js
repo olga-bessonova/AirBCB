@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { fetchListing, getListing } from "../../store/listings"
@@ -7,40 +7,41 @@ import { fetchReview, fetchReviews, getReviews } from "../../store/reviews"
 import { restoreSession } from "../../store/session"
 import ReviewForm from '../ReviewForm';
 import ListingReview from '../ListingReview';
+import { Modal } from '../../context/Modal';
 import './ListingShow.css'
 
-export const ListingShow = () => {
+export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
   const { listingId } = useParams();
   const dispatch = useDispatch();
   const listing = useSelector(getListing(listingId)); 
   const userId = listing ? listing.userId : null 
   const user = useSelector(state => state.users ? state.users[userId] : null);
   const users = useSelector(state => state.users);
-
-  // const reviews = useSelector(state => state.reviews ? state.reviews : []);
-  // const reviews = state.reviews ? Object.values(state.reviews) : [];
-  // const reviews = useSelector(getReviews);
-  // debugger
-  // const reviews = useSelector(state => state.reviews ? state.reviews.filter(review => review.listingId === listingId) : null);
-  // const reviewsSelected = reviews.filter(review => review.listingId === listingId);
-  // const currentUser = useSelector(state => state.session.user);
+  const reviews = useSelector(state => Object.values(state.reviews));
+  const reviewsSelected = reviews.filter(review => review.listingId == listingId);
+  const currentUser = useSelector(state => state.session.user);
+  const [reviewModal, setReviewModal] = useState(false);
 
 
   useEffect(() => {
     dispatch(fetchListing(listingId));
-    // dispatch(fetchReviews());
     }, [listingId, dispatch])
 
   useEffect(() => {
     dispatch(restoreSession())
-    }, [])
+    }, []);
 
-    // if (!listing || !user || !reviews) {
-      if (!listing || !user) {
+  const writeReview = (e) => {
+    e.preventDefault();
+    if (currentUser) setReviewModal(true)
+    else setShowLoginModal(true);
+  };
+
+    if (!listing || !user || !reviews) {
       return null
   }
 
-  return (
+  if (user) return (
     <div className="listing-show-container">
       <div className="listing-show-header">
         <h1>{listing.title}</h1>
@@ -81,17 +82,25 @@ export const ListingShow = () => {
         <h2></h2>
       </div>
 
-      <div className = "review-container">
+      {(!currentUser) || (currentUser.id !== listing.userId) && 
+        <button className="write-review-button" onClick={writeReview}>Write a review</button>}
+
+      {reviewModal && (
+        <Modal onClose={() => setReviewModal(false)}>
+          <ReviewForm user={user} listing={listing} setReviewModal={setReviewModal} />
+        </Modal>
+      )}
+      
+      {/* <div className = "review-container">
         <ReviewForm />
-      </div>
-{/* 
+      </div> */}
+
       <div className = "reviews-container">
         <ListingReview 
           users={users}
-          reviews={reviews}
-          // reviews={reviewsSelected}
+          reviews={reviewsSelected}
         />
-      </div> */}
+      </div>
     </div>    
   )
 }

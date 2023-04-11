@@ -14,6 +14,7 @@ class Listing < ApplicationRecord
   validates :price, numericality: {greater_than_or_equal_to: 0, message: "Price must be >= 0"}, presence: true
 
   belongs_to :user, class_name: :User
+  has_many :reviews, dependent: :destroy
   has_many_attached :images, dependent: :destroy
 
 end

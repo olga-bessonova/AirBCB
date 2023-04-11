@@ -4,7 +4,7 @@ import * as reviewActions from '../../store/reviews';
 import './ReviewForm.css';
 
 
-const ReviewForm = ({user,listing,setReviewModal}) => {
+const ReviewForm = ({user, listing, setReviewModal}) => {
 
   const dispatch = useDispatch();
   const [body, setBody] = useState("");

@@ -17,7 +17,12 @@ function App() {
       />
       <Switch>
         <Route exact path="/" component={ListingIndex} />
-        <Route exact path={'/listings/:listingId'} component={ListingShow} />
+        <Route exact path={'/listings/:listingId'}>
+          <ListingShow 
+            showLoginModal={showLoginModal}
+            setShowLoginModal={setShowLoginModal}
+          />
+        </Route> 
       </Switch>
       
     </>
