@@ -38,8 +38,10 @@ const usersReducer = (state = {}, action) => {
       return { ...action.users };
     case RECEIVE_USER:
       return { ...state, [action.user.id]: action.user };
-    case RECEIVE_LISTING:
-      return { ...state, [action.data.user.id]: action.data.user };
+    // case RECEIVE_LISTING:
+    //   return { ...state, [action.data.user.id]: action.data.user };
+     case RECEIVE_LISTING:
+      return { ...state, ...action.data.users };
     default:
       return state;
   }

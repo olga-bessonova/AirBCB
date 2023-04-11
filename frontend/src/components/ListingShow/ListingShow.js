@@ -77,13 +77,14 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
           .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ')} hosted by ${user.firstName}`}
         </h2>
-        <hr></hr>
+        <div className="divider-container"><hr className="divider"></hr></div>
         <p>{listing.description}</p>
         <h2></h2>
       </div>
 
-      {(!currentUser) || (currentUser.id !== listing.userId) && 
-        <button className="write-review-button" onClick={writeReview}>Write a review</button>}
+      <div className="divider-container"><hr className="divider"></hr></div>
+      {(!currentUser || (currentUser.id !== listing.userId)) && (
+        <button className="write-review-button" onClick={writeReview}>Write a review</button>)}
 
       {reviewModal && (
         <Modal onClose={() => setReviewModal(false)}>
@@ -91,9 +92,6 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
         </Modal>
       )}
       
-      {/* <div className = "review-container">
-        <ReviewForm />
-      </div> */}
 
       <div className = "reviews-container">
         <ListingReview 

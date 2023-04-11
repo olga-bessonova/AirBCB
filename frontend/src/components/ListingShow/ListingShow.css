@@ -1,3 +1,10 @@
+:root {
+  --grey-color: #dadada;
+  --grey-darker-color: #767776;
+  --red-brand-color: #F95E5C;  
+  --font-size: 18px;
+}
+
 /* .listing-show-container {
 	  width: 86.32vw;
     display: flex;
@@ -11,6 +18,24 @@
 
 #listing-image1 {
   width: 30%
+}
+
+.write-review-button {
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.divider-container {
+  text-align: center;
+}
+
+.divider {
+  width: 90%;
+  border: none; 
+  height: 1px; 
+  background-color: var(--grey-color);
+  margin: 20px 0; 
 }
 
 /* .images-container {

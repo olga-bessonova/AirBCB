@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as reviewActions from '../../store/reviews';
+import StarRating from './StarRating';
 import './ReviewForm.css';
 
 
@@ -15,7 +16,7 @@ const ReviewForm = ({user, listing, setReviewModal}) => {
   const [location, setLocation] = useState(5);
   const [value, setValue] = useState(5);
   
-  const handleSubmit = (e) => {
+  const handlePostReview = (e) => {
       e.preventDefault();
       dispatch(reviewActions.createReview({
           listingId:listing.id,
@@ -32,42 +33,49 @@ const ReviewForm = ({user, listing, setReviewModal}) => {
 
   return (
     <div className='review-container'>
-      <div className='review-modal-header'>How was your stay</div>
-      <form onSubmit={handleSubmit} className='review-form'>
+      <form onSubmit={handlePostReview} className='review-form'>
         <label>Cleanliness
           <div className='rating'>
-            1
+            <StarRating rating={cleanliness} setRating={setCleanliness}/>
           </div>
         </label>
 
         <label>Communication
           <div className='rating'>
-            2
+            <StarRating rating={communication} setRating={setCommunication}/>
+
           </div>
         </label>
 
         <label>Check-in
           <div className='rating'>
-            3
+          <StarRating rating={checkin} setRating={setCheckin}/>
+
           </div>
         </label>
 
         <label>Accuracy
           <div className='rating'>
-            4
+          <StarRating rating={accuracy} setRating={setAccuracy}/>
+
           </div>
         </label>
 
         <label>Location
-          <div className='rating'>5</div>
+          <div className='rating'>
+          <StarRating rating={location} setRating={setLocation}/>
+
+            </div>
         </label> 
 
         <label>Value
-          <div className='rating'>6</div>
+          <div className='rating'>
+          <StarRating rating={value} setRating={setValue}/>
+            </div>
         </label>
 
-        <div className='review-write-container'>Write a review</div>
-        <div className='review-howwas-container'>How was your stay?</div>
+        {/* <div className='review-write-container'>Write a review</div> */}
+        {/* <div className='review-howwas-container'>How was your stay?</div> */}
 
         <textarea className='review-box'
           placeholder='How was your stay?'
@@ -77,7 +85,7 @@ const ReviewForm = ({user, listing, setReviewModal}) => {
         >
         </textarea>
 
-        <button>Post review</button>
+        <button className='post-review-button' onClick={handlePostReview}>Post review</button>
       </form>
     </div>
 

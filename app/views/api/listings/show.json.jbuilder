@@ -3,14 +3,28 @@ json.listing do
   listing: @listing
 end
 
-json.user do
-  json.extract! @user,
-    :id,
-    :email,
-    :first_name,
-    :last_name,
-    :created_at,
-    :updated_at
+# json.user do
+#   json.extract! @user,
+#     :id,
+#     :email,
+#     :first_name,
+#     :last_name,
+#     :created_at,
+#     :updated_at
+# end
+
+json.users do
+  @users.each do |user|
+    json.set! user.id do
+      json.extract! user,
+      :id,
+      :email,
+      :first_name,
+      :last_name,
+      :created_at,
+      :updated_at
+    end
+  end
 end
 
 json.reviews do

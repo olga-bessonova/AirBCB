@@ -17,7 +17,7 @@ const ListingReview = ({users, reviews}) => {
           <div>{review.body}</div>  
           <div className='listing-review-delete-button-container'>
             {user && review.userId === user.id && (
-              <button className='listing-review-delete-button' onClick={() => dispatch(reviewActions.removeReview(review.id))}>
+              <button className='listing-review-delete-button' onClick={() => dispatch(reviewActions.deleteReview(review.id))}>
                 Delete
               </button>
             )}

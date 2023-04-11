@@ -9,7 +9,8 @@ class Api::ListingsController < ApplicationController
   def show
     # debugger
     @listing = Listing.find(params[:id])
-    @user = User.find(@listing[:user_id])
+    # @user = User.find(@listing[:user_id])
+    @users = User.all
     @reviews = Review.where(listing_id: @listing[:id])
 
     render :show    
