@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { fetchListing, getListing } from "../../store/listings"
 import { fetchUser, fetchUsers } from "../../store/users"
+import { fetchReview, fetchReviews, getReviews } from "../../store/reviews"
 import { restoreSession } from "../../store/session"
+import ReviewForm from '../ReviewForm';
+import ListingReview from '../ListingReview';
 import './ListingShow.css'
 
 export const ListingShow = () => {
@@ -12,19 +15,28 @@ export const ListingShow = () => {
   const listing = useSelector(getListing(listingId)); 
   const userId = listing ? listing.userId : null 
   const user = useSelector(state => state.users ? state.users[userId] : null);
-  // const users = useSelector(state => state.users);
+  const users = useSelector(state => state.users);
+
+  // const reviews = useSelector(state => state.reviews ? state.reviews : []);
+  // const reviews = state.reviews ? Object.values(state.reviews) : [];
+  // const reviews = useSelector(getReviews);
+  // debugger
+  // const reviews = useSelector(state => state.reviews ? state.reviews.filter(review => review.listingId === listingId) : null);
+  // const reviewsSelected = reviews.filter(review => review.listingId === listingId);
   // const currentUser = useSelector(state => state.session.user);
 
 
   useEffect(() => {
     dispatch(fetchListing(listingId));
+    // dispatch(fetchReviews());
     }, [listingId, dispatch])
 
   useEffect(() => {
     dispatch(restoreSession())
     }, [])
 
-    if (!listing || !user) {
+    // if (!listing || !user || !reviews) {
+      if (!listing || !user) {
       return null
   }
 
@@ -68,6 +80,18 @@ export const ListingShow = () => {
         <p>{listing.description}</p>
         <h2></h2>
       </div>
+
+      <div className = "review-container">
+        <ReviewForm />
+      </div>
+{/* 
+      <div className = "reviews-container">
+        <ListingReview 
+          users={users}
+          reviews={reviews}
+          // reviews={reviewsSelected}
+        />
+      </div> */}
     </div>    
   )
 }

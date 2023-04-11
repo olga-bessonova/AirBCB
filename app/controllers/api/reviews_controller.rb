@@ -2,14 +2,14 @@ class Api::ReviewsController < ApplicationController
   wrap_parameters include: Review.attribute_names + ['userId', 'listingId']
 
   def index
-    @reviews = Reviews.all
+    @reviews = Review.all
     render :index
   end
 
   def create
     @review = Review.new(
+      listing_id: params[:listing_id],
       body: params[:body],
-
       cleanliness: params[:cleanliness],
       communication: params[:communication],
       checkin: params[:checkin],
@@ -18,13 +18,13 @@ class Api::ReviewsController < ApplicationController
       value: params[:value]
     )
     @review.user_id = current_user.id
-      @review.rating: ((params[:cleanliness].to_int +
+    @review.rating   = (params[:cleanliness].to_int +
                         params[:communication].to_int +
                         params[:checkin].to_int +
                         params[:accuracy].to_int +
                         params[:location].to_int +
-                        params[:value]) / 6.0)
-    )
+                        params[:value]) / 6.0
+    
     
 
       if @review.save

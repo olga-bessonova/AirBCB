@@ -166,7 +166,58 @@ ApplicationRecord.transaction do
 
 
   puts "Creating reviews..."
-  # review1 = Review.create
+
+  r1 = Review.create!(
+    user_id: 2, 
+    listing_id: 1,
+    body: "Cool", 
+    cleanliness: 5, 
+    communication: 5, 
+    checkin: 5, 
+    accuracy: 5, 
+    location: 5, 
+    value: 5,
+    rating: 4.75   
+  )
+
+  r2 = Review.create!(
+    user_id: 2, 
+    listing_id: 2,
+    body: "Pretty good", 
+    cleanliness: 4, 
+    communication: 5, 
+    checkin: 5, 
+    accuracy: 5, 
+    location: 5, 
+    value: 5,
+    rating: 4.75   
+  )
+
+  r3 = Review.create!(
+    user_id: 1, 
+    listing_id: 1,
+    body: "It was ok", 
+    cleanliness: 4, 
+    communication: 5, 
+    checkin: 5, 
+    accuracy: 5, 
+    location: 5, 
+    value: 5,
+    rating: 4.75   
+  )
+
+  r4 = Review.create!(
+    user_id: 2, 
+    listing_id: 3,
+    body: "Amazing experience", 
+    cleanliness: 4, 
+    communication: 5, 
+    checkin: 5, 
+    accuracy: 5, 
+    location: 5, 
+    value: 5,
+    rating: 4.75   
+  )
 
   
 
