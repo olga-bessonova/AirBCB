@@ -10,6 +10,8 @@ class Api::ListingsController < ApplicationController
     # debugger
     @listing = Listing.find(params[:id])
     @user = User.find(@listing[:user_id])
+    @reviews = Review.where(listing_id: @listing[:id])
+
     render :show    
     # render "/api/listings/show"    
   end
