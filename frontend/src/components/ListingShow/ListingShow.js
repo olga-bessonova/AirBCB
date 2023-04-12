@@ -41,45 +41,48 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
       return null
   }
 
+  
+
   if (user) return (
     <div className="listing-show-container">
       <div className="listing-show-header">
+
         <h1>{listing.title}</h1>
-        &#9733;
-        <span className='review-score'>4.9</span>
-        <span className='review-dot'>·</span>
-        <span className='review-amount'>26 reviews</span>
-        <span className='review-dot'>·</span>
-        <span>{`${listing.city}, ${listing.country}`}</span>
+        <div  className="listing-show-header-details-row">
+          <span className="review-star">&#9733;</span>        
+          <span className='review-score'>4.9</span>
+          <span className='review-dot'>·</span>
+          <span className='review-amount'>26 reviews</span>
+          <span className='review-dot'>·</span>
+          <span className='review-location'>{`${listing.city}, ${listing.country}`}</span>
+        </div>
       </div>
 
-      <div className="images-container"> 
-        <img id="listing-image1" src={require("../../assets/listings/1/1.jpg")}></img>
+      
+      <div className="listing-show-visuals">
+        <div className='first-col-photo'>
+          <img className="listing-show-image main" src={require("../../assets/listings/1/1.jpg")}/>
+        </div>
+        <div className='second-col-photos'>
+          <img className="listing-show-image" src={require("../../assets/listings/1/2.jpg")}/>
+          <img className="listing-show-image" src={require("../../assets/listings/1/3.jpg")}/>
+        </div>
+        <div className='third-col-photos'>
+          <img className="listing-show-image" src={require("../../assets/listings/1/4.jpg")}/>
+          <img className="listing-show-image" src={require("../../assets/listings/1/5.jpg")}/>
+
+       </div>
       </div>
 
-      {/* <div className="images-container">
-        <div className='image-one'>
-          <img src={require("../../assets/listings/1/1.jpg")}></img>
-        </div>
-        <div className='images-column-two'>
-          <img src={require("../../assets/listings/1/1.jpg")}></img>
-          <img src={require("../../assets/listings/1/1.jpg")}></img>
-        </div>
-        <div className='images-column-three'>
-          <img src={require("../../assets/listings/1/1.jpg")}></img>
-          <img src={require("../../assets/listings/1/1.jpg")}></img>
-        </div>
-      </div> */}
 
-      <div>
-        <h2>{`${listing.placeType
+      <div className="hosted-by-container">
+        <span className="hosted-by">{`${listing.placeType
           .split('_')
           .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ')} hosted by ${user.firstName}`}
-        </h2>
+        </span>
         <div className="divider-container"><hr className="divider"></hr></div>
         <p>{listing.description}</p>
-        <h2></h2>
       </div>
 
       <div className="divider-container"><hr className="divider"></hr></div>
