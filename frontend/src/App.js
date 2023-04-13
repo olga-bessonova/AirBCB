@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Navigation from "./components/Navigation";
+import Search from "./components/SearchShowPage/SearchShowPage.js";
 import ListingIndex from './components/ListingIndex/ListingIndex.js'
 import ListingShow from './components/ListingShow/ListingShow.js'
 
@@ -23,6 +24,10 @@ function App() {
             setShowLoginModal={setShowLoginModal}
           />
         </Route> 
+
+        <Route path="/search">
+          <Search />
+        </Route>
       </Switch>
       
     </>

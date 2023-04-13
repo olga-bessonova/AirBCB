@@ -4,12 +4,14 @@ import session from './session';
 import users from './users';
 import listings from './listings';
 import reviews from './reviews';
+import search from './search';
 
 const rootReducer = combineReducers({
   session,
   users,
   listings,
-  reviews
+  reviews,
+  search
 });
 
 let enhancer;

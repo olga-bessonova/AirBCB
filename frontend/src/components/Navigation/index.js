@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginDropDown from '../LoginDropDown';
-import Search from '../Search';
+import SearchBar from '../SearchBar';
 import logo from '../../assets/logo/logo.png';
 import './Navigation.css';
 
@@ -58,7 +58,7 @@ const Navigation = ({showLoginModal, setShowLoginModal}) => {
         </button>
       </form> */}
 
-      {/* <Search /> */}
+      <SearchBar />
 
       <div className="site-header-right-side">
         <div className="session-links">
