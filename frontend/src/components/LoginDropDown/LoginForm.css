@@ -111,3 +111,27 @@
 #profile-button-user-circle {
   color: var(--dark-black-color);
 }
+
+.profile-dropdown-login {
+  position: absolute;
+  /* display: block; */
+  margin-top: 30px;
+  /* margin-left: -200px; */
+  padding: 8px 2px;
+  top: 50%;
+  top: 53px;
+  right: 0px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 18px rgba(0 0 0 / 10%);
+  min-width: 250px;
+  font-weight: 600;
+  font-style: bold;
+  font-size: 22px;
+}
+
+.profile-dropdown-login li {
+  text-align: right;
+  margin: 20px;
+}
+

@@ -20,14 +20,14 @@ const Navigation = ({showLoginModal, setShowLoginModal}) => {
         clearTimeout(messageTimeout);
       }, 3000)
     }
-  },[loginMessage])
+  },[loginMessage]);
+
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
-    );
-  } else {
+        <ProfileButton user={sessionUser} />
+  )} else {
     sessionLinks = (
       <LoginDropDown 
         showLoginModal={showLoginModal}

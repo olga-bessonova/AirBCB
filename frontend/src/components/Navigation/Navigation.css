@@ -42,6 +42,7 @@ a {
 div.session-links {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 div.session-links > * {
@@ -61,7 +62,8 @@ div.session-links > * {
   position: absolute;
   /* display: block; */
   margin-top: 30px;
-  padding: 8px 5px;
+  /* margin-left: -200px; */
+  padding: 8px 2px;
   top: 50%;
   top: 30px;
   right: 0px;
@@ -76,7 +78,7 @@ div.session-links > * {
 
 .profile-dropdown li {
   text-align: right;
-  margin: 13px;
+  margin: 20px;
 }
 
 .login-modal {

@@ -31,11 +31,11 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
       </button>
 
       {menu && (
-          <ul className="profile-dropdown" onClick={() => setMenu(false)}>
+          <ul className="profile-dropdown-login" onClick={() => setMenu(false)}>
               <li onClick={()=> setShowLoginModal(true)}>Log in</li>
               <li onClick={()=> setShowSignupModal(true)}>Sign up</li>
               <li className='dropdown-divider'></li>
-              <li onClick={()=> setShowLoginModal(true)}>Airbcb your home</li>
+              <li onClick={()=> setShowLoginModal(true)}>airbcb your home</li>
               {/* <li onClick={()=> setShowLoginModal(true)}>Account</li> */}
           </ul>
       )}

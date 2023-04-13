@@ -37,10 +37,8 @@ json.users do
 
       if user.photo.attached?
         json.photo_url user.photo.url
-      # else
-      #   json.photo_url '../../frontend/src/assets/avatar/girl2.jpg' 
       else
-        json.photo_url 'https://airbbc-dev.s3.amazonaws.com/avatar/animal-herocapybara.jpg'
+        json.photo_url 'https://airbbc-dev.s3.amazonaws.com/avatar/user1.jpg'
         # json.photo_url require("../../frontend/src/assets/avatar/animal-herocapybara.jpg")
       end
     end

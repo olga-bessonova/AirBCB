@@ -23,7 +23,7 @@ const SignUpForm = (props) => {
       e.preventDefault();
       if (password) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, password, firstName, lastName }))
+      return dispatch(sessionActions.signup({email, password, firstName, lastName}))
           .catch(async (res) => {
           let data;
           try {
