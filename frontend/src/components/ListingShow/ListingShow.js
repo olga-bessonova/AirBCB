@@ -65,22 +65,22 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
       
       <div className="listing-show-visuals">
         <div className='first-col-photo'>
-          <img className="listing-show-image main" src={require("../../assets/listings/1/1.jpg")}/>
-          {/* <img className="listing-show-image main" src={listing.photosUrl[0]}/> */}
+          {/* <img className="listing-show-image main" src={require("../../assets/listings/1/1.jpg")}/> */}
+          <img className="listing-show-image main" src={listing.photosUrl[0]}/>
         </div>
         <div className='second-col-photos'>
-          {/* <img className="listing-show-image main" src={listing.photosUrl[1]}/>
-          <img className="listing-show-image main" src={listing.photosUrl[2]}/> */}
+          <img className="listing-show-image main" src={listing.photosUrl[1]}/>
+          <img className="listing-show-image main" src={listing.photosUrl[2]}/>
 
-          <img className="listing-show-image" src={require("../../assets/listings/1/2.jpg")}/> 
-          <img className="listing-show-image" src={require("../../assets/listings/1/3.jpg")}/>
+          {/* <img className="listing-show-image" src={require("../../assets/listings/1/2.jpg")}/> 
+          <img className="listing-show-image" src={require("../../assets/listings/1/3.jpg")}/> */}
         </div>
         <div className='third-col-photos'>
-          {/* <img className="listing-show-image main" src={listing.photosUrl[3]}/>
-          <img className="listing-show-image main" src={listing.photosUrl[4]}/> */}
+          <img className="listing-show-image main" src={listing.photosUrl[3]}/>
+          <img className="listing-show-image main" src={listing.photosUrl[4]}/>
 
-          <img className="listing-show-image" src={require("../../assets/listings/1/4.jpg")}/>
-          <img className="listing-show-image" src={require("../../assets/listings/1/5.jpg")}/>
+          {/* <img className="listing-show-image" src={require("../../assets/listings/1/4.jpg")}/>
+          <img className="listing-show-image" src={require("../../assets/listings/1/5.jpg")}/> */}
 
        </div>
       </div>
@@ -104,8 +104,8 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
           </div>
           </div>
           <div className='listing-detail-avatar'>
-            <img className='owner-avatar' src={require("../../assets/avatar/girl2.jpg")}/>
-            {/* <img className='owner-avatar' src={user.photoUrl}/> */}
+            {/* <img className='owner-avatar' src={require("../../assets/avatar/girl2.jpg")}/> */}
+            <img className='owner-avatar' src={user.photoUrl}/>
           </div>
         </div>
         <div className="divider-container"><hr className="divider"></hr></div>

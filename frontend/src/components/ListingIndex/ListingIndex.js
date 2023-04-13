@@ -15,7 +15,7 @@ const ListingIndex = () => {
   
   return (
     <>
-      <Feature />
+      {/* <Feature /> */}
       <div className='listings-div'>
         {
           listings.map(listing => <ListingIndexItem listing={listing} key={listing.id}/>)

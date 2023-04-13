@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginDropDown from '../LoginDropDown';
 import Search from '../Search';
-import logo from './logo.png';
+import logo from '../../assets/logo/logo.png';
 import './Navigation.css';
 
 const Navigation = ({showLoginModal, setShowLoginModal}) => {
@@ -50,20 +50,31 @@ const Navigation = ({showLoginModal, setShowLoginModal}) => {
         <h4>Search bar</h4>
       </div> */}
       
-      <form className="search-bar">
+      {/* <form className="search-bar">
         <input className="search-bar" type="text" placeholder="Search"/>
         <button className="search-button">
-          {/* <img className="search-icon" src="icons/search.svg"> */}
+          <img className="search-icon" src="icons/search.svg">
           <div className="tooltip">Search</div>
         </button>
-      </form>
+      </form> */}
 
       {/* <Search /> */}
 
+      <div className="site-header-right-side">
+        <div className="session-links">
+          {sessionLinks}
+        </div>
 
-      <div className="session-links">
-        {sessionLinks}
+        <div>
+          <a className = 'github-link' href="https://github.com/olga-bessonova/BunnyHop">
+            <i className="fa-brands fa-github fa-2x"></i>
+          </a>
+          <a className = 'linkedin-link' href="https://www.linkedin.com/in/olga-borovikova/">
+            <i className="fa-brands fa-linkedin-in fa-2x"></i>
+          </a>
+        </div>
       </div>
+      
 
     </header>
   );

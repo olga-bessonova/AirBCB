@@ -17,15 +17,15 @@ const ListingIndexItem = ({ listing }) => {
     dispatch(fetchListing(listing.id))
   }
 
-  return (
+  if (listing) return (
     <div onClick={()=> history.push(`/listings/${listing.id}`)}>
 
     <Link to={`listings/${listing.id}`}>
       <div className='listing-div' onClick={handleCLick}>
         
         <div className="listing-image"> 
-					<img id="listing-image" src={require("../../assets/listings/1/1.jpg")}></img>
-					{/* <img id="listing-image" src={listing.photosUrl[0]}></img> */}
+					{/* <img id="listing-image" src={require("../../assets/listings/1/1.jpg")}></img> */}
+					<img id="listing-image" src={listing.photosUrl[0]}></img>
 				</div>
         
         <div>

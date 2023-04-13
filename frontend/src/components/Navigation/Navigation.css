@@ -1,6 +1,7 @@
 :root {
   --grey-color: #9da09d;
-  --red-brand-color: #F95E5C;  
+  --red-brand-color: #F95E5C; 
+  --dark-black-color: #383838;
 }
 
 header.site-header {
@@ -90,6 +91,25 @@ div.session-links > * {
 
 .logo-img {
   width: 30px;
+}
+
+.site-header-right-side {
+  display: flex;
+  align-items: center;
+}
+
+.github-link {
+  color: var(--dark-black-color);
+  margin-right: 10px;
+  /* font-size: 14px; */
+}
+
+.linkedin-link {
+  color: var(--dark-black-color);
+}
+
+.github-link::hover {
+  
 }
 
 

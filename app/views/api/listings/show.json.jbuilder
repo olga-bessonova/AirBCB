@@ -40,7 +40,7 @@ json.users do
       # else
       #   json.photo_url '../../frontend/src/assets/avatar/girl2.jpg' 
       else
-        json.photo_url 'https://airbbc-dev.s3.amazonaws.com/cnrjp8vlhaneft38oj4ekz1syuca'
+        json.photo_url 'https://airbbc-dev.s3.amazonaws.com/avatar/animal-herocapybara.jpg'
         # json.photo_url require("../../frontend/src/assets/avatar/animal-herocapybara.jpg")
       end
     end
@@ -65,4 +65,28 @@ json.reviews do
     end
   end
 end
+
+
+
+
+# json.extract! @listing, 
+# :id,
+# :user_id,
+# :title,
+# :description,
+# :place_type,
+# :feature,
+# :num_of_bath,
+# :num_of_bed,
+# :max_guests,
+# :city,
+# :country,
+# :latitude,
+# :longitude,
+# :price 
+# if @listing.photos.attached? 
+# 	json.photos_url @listing.photos.map {|photo| photo.url}
+# else 
+# 	json.photos_url ['https://airbbc-dev.s3.amazonaws.com/listings/1/1.jpg']
+# end
 

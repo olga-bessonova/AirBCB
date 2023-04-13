@@ -16,8 +16,8 @@ const ListingReview = ({users, reviews}) => {
           <div className="review-show-header">
             <div className="review-show-header-img-name">
               <div>
-                <img className="show-review-image" src={require("../../assets/avatar/man1.jpg")} alt="" />
-                {/* <img className="show-review-image" src={user.photoUrl} alt="" /> */}
+                {/* <img className="show-review-image" src={require("../../assets/avatar/man1.jpg")} alt="" /> */}
+                <img className="show-review-image" src={users[review.userId].photoUrl} alt="" />
               </div>            
               <div className='review-user-info'>
                 <span>{users[review.userId].firstName}</span>

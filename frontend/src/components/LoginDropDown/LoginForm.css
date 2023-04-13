@@ -2,6 +2,7 @@
   --grey-color: #9da09d;
   --red-brand-color: #F95E5C;  
   --font-size: 18px;
+  --dark-black-color: #383838; 
 }
 
 .close-button {
@@ -84,13 +85,23 @@
 }
 
 .profile-button {
-  border: 1px #DDDDDD solid;
+  border: 1px var(--grey-color) solid;
   border-radius: 20px;
-  padding: 5px 10px;
-  transition: box-shadow 0.2s ease;
+  padding: 8px 12px;
+  transition: box-shadow 0.3s ease;
   cursor: pointer;
+  font-size: 25px;
 }
 
 .profile-button:hover  {
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+}
+
+#profile-button-bars {
+  margin-right: 10px;
+  color: var(--dark-black-color);
+}
+
+#profile-button-user-circle {
+  color: var(--dark-black-color);
 }
