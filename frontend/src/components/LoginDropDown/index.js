@@ -3,9 +3,11 @@ import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm';
 import SignUpForm from '../SignUpModal/SignupForm';
 import './LoginForm.css';
+import { useSelector } from 'react-redux';
 
 function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
   const [showSignupModal, setShowSignupModal] = useState(false);
+  const user = useSelector(({session}) => session.user)
   const toggleMenu = () => {
     setMenu(open => !open);
   };
@@ -22,6 +24,8 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
     return () => document.removeEventListener("click", closeMenu);
   }, [menu]);
 
+  if (!user) return null;
+  
   return (
     <>
       <button className='profile-button' onClick={toggleMenu}>
