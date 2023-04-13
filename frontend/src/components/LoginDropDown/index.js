@@ -19,13 +19,10 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
     const closeMenu = () => {
       setMenu(false);
     };
-
     document.addEventListener('click', closeMenu);
     return () => document.removeEventListener("click", closeMenu);
   }, [menu]);
 
-  if (!user) return null;
-  
   return (
     <>
       <button className='profile-button' onClick={toggleMenu}>
@@ -39,7 +36,7 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
               <li onClick={()=> setShowSignupModal(true)}>Sign up</li>
               <li className='dropdown-divider'></li>
               <li onClick={()=> setShowLoginModal(true)}>Airbcb your home</li>
-              <li onClick={()=> setShowLoginModal(true)}>Account</li>
+              {/* <li onClick={()=> setShowLoginModal(true)}>Account</li> */}
           </ul>
       )}
 

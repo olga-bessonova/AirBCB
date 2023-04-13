@@ -59,20 +59,24 @@ div.session-links > * {
 
 .profile-dropdown {
   position: absolute;
-  border: 1px solid grey;
-  border-radius: 5px;
-  padding: 5px;
-  top: 100%;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  background: white;
-  z-index: 1;
+  /* display: block; */
+  margin-top: 30px;
+  padding: 8px 5px;
+  top: 50%;
+  top: 30px;
+  right: 0px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 18px rgba(0 0 0 / 10%);
+  min-width: 250px;
+  font-weight: 600;
+  font-style: bold;
+  font-size: 22px;
 }
 
 .profile-dropdown li {
   text-align: right;
-  margin: 5px;
+  margin: 13px;
 }
 
 .login-modal {
@@ -108,8 +112,12 @@ div.session-links > * {
   color: var(--dark-black-color);
 }
 
-.github-link::hover {
-  
+.profile-avatar {
+  height: 30px;
+  font-weight: 30px;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 

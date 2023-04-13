@@ -33,10 +33,10 @@ const SignUpForm = (props) => {
           }
           if (data?.errors) setErrors(data.errors);
           else if (data) setErrors([data]);
+          else if (password !== confirmPassword) setErrors(['Confirmed password must be the same as password']);
           else setErrors([res.statusText]);
       });
       }
-      return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
 

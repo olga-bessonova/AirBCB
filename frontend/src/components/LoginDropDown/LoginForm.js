@@ -44,7 +44,7 @@ function LoginForm(props) {
 
   return (
     <div className="login-modal">
-      <div onClick={()=>setShowLoginModal(false)} className="close-button">
+      <div onClick={()=>setShowLoginModal(false)} className="close-button" id="close-button-login">
         <i className="fa-solid fa-x"></i>
       </div>
 
@@ -53,7 +53,7 @@ function LoginForm(props) {
       </header>  
 
       <div className="welcome-message">
-        <span>Welcome to Airbbc</span>
+        <p>Welcome to airbbc</p>
       </div>
       
       <form className="login-form" onSubmit={handleSubmit}>
@@ -71,7 +71,7 @@ function LoginForm(props) {
 
         <div className="password-div">
             <input
-              className="password-input"
+              className="password-login-input"
               placeholder="Password"
               type="password"
               value={password}
