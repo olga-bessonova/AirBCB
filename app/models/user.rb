@@ -13,8 +13,9 @@ class User < ApplicationRecord
   
   before_validation :ensure_session_token
 
+  has_one_attached :photo
   has_many :listings, class_name: :Listing, dependent: :destroy
-  has_many_attached :photos
+  has_many :reviews, dependent: :destroy
 
   
   def self.find_by_credentials(email, password)

@@ -25,6 +25,7 @@ const ListingIndexItem = ({ listing }) => {
         
         <div className="listing-image"> 
 					<img id="listing-image" src={require("../../assets/listings/1/1.jpg")}></img>
+					{/* <img id="listing-image" src={listing.photosUrl[0]}></img> */}
 				</div>
         
         <div>

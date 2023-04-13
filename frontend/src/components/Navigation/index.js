@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginDropDown from '../LoginDropDown';
+import Search from '../Search';
 import logo from './logo.png';
 import './Navigation.css';
 
@@ -45,9 +46,20 @@ const Navigation = ({showLoginModal, setShowLoginModal}) => {
         </div>
       </NavLink>
 
-      <div>
+      {/* <div>
         <h4>Search bar</h4>
-      </div>
+      </div> */}
+      
+      <form className="search-bar">
+        <input className="search-bar" type="text" placeholder="Search"/>
+        <button className="search-button">
+          {/* <img className="search-icon" src="icons/search.svg"> */}
+          <div className="tooltip">Search</div>
+        </button>
+      </form>
+
+      {/* <Search /> */}
+
 
       <div className="session-links">
         {sessionLinks}

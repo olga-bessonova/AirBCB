@@ -15,6 +15,6 @@ class Listing < ApplicationRecord
 
   belongs_to :user, class_name: :User
   has_many :reviews, dependent: :destroy
-  has_many_attached :images, dependent: :destroy
+  has_many_attached :photos, dependent: :destroy
 
 end

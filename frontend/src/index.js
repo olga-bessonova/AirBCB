@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './context/Modal';
+import {Wrapper} from '@googlemaps/react-wrapper';
 import './reset.css';
 import './index.css';
 import App from './App';
@@ -34,7 +35,9 @@ function Root() {
 const renderApplication = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <Root />
+      <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY}>
+        <Root />
+      </Wrapper>
     </React.StrictMode>,
     document.getElementById('root')
   );

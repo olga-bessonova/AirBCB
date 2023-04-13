@@ -4,6 +4,8 @@ class Api::ListingsController < ApplicationController
   def index
     @listings = Listing.all
     render :index
+    # if params feature undefined -> do all listing. else grab specific listings
+    # if params[:feature] == 'luxe'
   end
 
   def show
