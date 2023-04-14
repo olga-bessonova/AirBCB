@@ -56,7 +56,7 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
     reviewsSelected.forEach(review => {
       aveRating += review.rating;
     })
-    aveRating = aveRating/reviewsSelected.length
+    aveRating = (aveRating/reviewsSelected.length).toFixed(2)
   }
 
   
@@ -68,7 +68,7 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
         <h1>{listing.title}</h1>
         <div  className="listing-show-header-details-row">
           <span className="review-star">&#9733;</span>        
-          <span className='review-score'>4.9</span>
+          <span className='review-score'>{aveRating}</span>
           {/* <span className='review-score'>4.9</span> */}
           <span className='review-dot'>·</span> 
           <span className='review-amount'>{reviewsSelected.length} reviews</span>
@@ -142,10 +142,13 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
 
       <div className = "reviews-container">
         <div  className="reviews-container-header">
-          <span className="review-star">&#9733;</span>        
-          <span className='review-score'>4.9</span>
+          <span className="review-star">&#9733;</span> 
+          <span className='review-score'>{aveRating}</span>
+          {/* <span className='review-score'>4.9</span> */}
+          {/* <span className='review-score'>4.9</span> */}
           <span className='review-dot'>·</span>
-          <span className='review-amount'>26 reviews</span>
+          <span className='review-amount'>{reviewsSelected.length} reviews</span>       
+          {/* <span className='review-amount'>26 reviews</span> */}
         </div>
 
         <div className="container">
