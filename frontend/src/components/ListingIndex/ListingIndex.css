@@ -61,4 +61,27 @@
 
 .listing-title {
   font-weight: 600;
+  font-size: 18px;
 }
+/* 
+.description-container p {
+  margin-bottom: 10px;
+} */
+.description-p {
+  margin-top: 5px;
+  /* font-size: 10px; */
+}
+
+.price-p {
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 10px;
+
+}
+.price-span {
+  font-weight: 600;
+}
+
+/* .listing-item-container {
+  margin-bottom: 20px;
+} */

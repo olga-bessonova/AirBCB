@@ -18,7 +18,7 @@ const ListingIndexItem = ({ listing }) => {
   }
 
   if (listing) return (
-    <div onClick={()=> history.push(`/listings/${listing.id}`)}>
+    <div className="listing-item-container" onClick={()=> history.push(`/listings/${listing.id}`)}>
 
     <Link to={`listings/${listing.id}`}>
       <div className='listing-div' onClick={handleCLick}>
@@ -28,10 +28,11 @@ const ListingIndexItem = ({ listing }) => {
 					<img id="listing-image" src={listing.photosUrl[0]}></img>
 				</div>
         
-        <div>
-          <p className='listing-title'>{listing.title.length < 25 ? listing.title : `${listing.title.slice(0,25)}...`}, {listing.city}</p>
-          <p>{listing.description.length < 35 ? listing.description : `${listing.description.slice(0,35)}...`}</p>
-          <p><span>{`$${listing.price}`}</span> night</p>           
+        <div className='description-container'>
+          {/* <p className='listing-title'>{listing.title.length < 25 ? listing.title : `${listing.title.slice(0,25)}...`}, {listing.city}</p> */}
+          <p className='listing-title'>{listing.title.length < 25 ? listing.title : `${listing.title.slice(0,25)}...`}</p>
+          <p className='description-p'>{listing.description.length < 35 ? listing.description : `${listing.description.slice(0,35)}...`}</p>
+          <p className='price-p'><span className='price-span'>{`$${listing.price}`}</span> night</p>           
         </div>
 
       </div>

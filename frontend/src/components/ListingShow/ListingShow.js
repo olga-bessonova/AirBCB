@@ -23,6 +23,11 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
   const users = useSelector(state => state.users);
   const reviews = useSelector(state => Object.values(state.reviews));
   const reviewsSelected = reviews.filter(review => review.listingId == listingId);
+  console.log(reviewsSelected, "reviews selected");
+  // if (reviewsSelected) {
+
+  //   debugger
+  // }
   const currentUser = useSelector(state => state.session.user);
   const [reviewModal, setReviewModal] = useState(false);
 
@@ -45,6 +50,15 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
       return null
   }
 
+
+  let aveRating = 0;
+  if (reviewsSelected.length > 0) {
+    reviewsSelected.forEach(review => {
+      aveRating += review.rating;
+    })
+    aveRating = aveRating/reviewsSelected.length
+  }
+
   
 
   if (user) return (
@@ -55,8 +69,10 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
         <div  className="listing-show-header-details-row">
           <span className="review-star">&#9733;</span>        
           <span className='review-score'>4.9</span>
-          <span className='review-dot'>·</span>
-          <span className='review-amount'>26 reviews</span>
+          {/* <span className='review-score'>4.9</span> */}
+          <span className='review-dot'>·</span> 
+          <span className='review-amount'>{reviewsSelected.length} reviews</span>
+          {/* <span className='review-amount'>26 reviews</span> */}
           <span className='review-dot'>·</span>
           <span className='review-location'>{`${listing.city}, ${listing.country}`}</span>
         </div>

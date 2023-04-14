@@ -12,6 +12,7 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
     setMenu(open => !open);
   };
   const [menu, setMenu] = useState(false);
+  // console.log("hi")
 
   useEffect(() => {
     if (!menu) return;
@@ -46,7 +47,7 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
         </Modal>
       )}
       {showSignupModal && (
-        <Modal onClose={() => setShowSignupModal(false)}>
+          <Modal onClose={() => setShowSignupModal(false)}>
           <SignUpForm setShowSignupModal={setShowSignupModal}/>
         </Modal>
       )}

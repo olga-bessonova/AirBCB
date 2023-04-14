@@ -33,16 +33,23 @@ const SignUpForm = (props) => {
           }
           if (data?.errors) setErrors(data.errors);
           else if (data) setErrors([data]);
-          else if (password !== confirmPassword) setErrors(['Confirmed password must be the same as password']);
+          // else if (password !== confirmPassword) setErrors(['Confirmed password must be the same as password']);
           else setErrors([res.statusText]);
       });
       }
   };
 
+  // function handleModal() {
+  //   // console
+  //   debugger;
+  // }
+
 
   return (
       <div className="signup-modal">
         <div onClick={() => setShowSignupModal(false)} className="close-button">
+        {/* <div onClick={handleModal} className="close-button"> */}
+
           <i className="fa-solid fa-x"></i>
         </div>
       
