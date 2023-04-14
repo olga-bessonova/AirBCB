@@ -6,6 +6,8 @@ import { fetchUser, fetchUsers } from "../../store/users"
 import { fetchReview, fetchReviews, getReviews } from "../../store/reviews"
 import { restoreSession } from "../../store/session"
 import ReviewForm from '../ReviewForm';
+// import ReviewForm from '../ReviewForm/ReviewUpdateCreate.js';
+import ListingReviewVisual from '../ListingReviewVisual';
 import ListingReview from '../ListingReview';
 import GoogleMap from '../GoogleMap'
 import { Modal } from '../../context/Modal';
@@ -151,14 +153,19 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
           {/* <span className='review-amount'>26 reviews</span> */}
         </div>
 
-        <div className="container">
+        {/* <div className="container">
           <div className="item">Cleanliness</div>
           <div className="item">Accuracy</div>
           <div className="item">Communication</div>
           <div className="item">Location</div>
           <div className="item">Check-in</div>
           <div className="item">Value</div>
+        </div> */}
+
+        <div className="visual-container">
+          <ListingReviewVisual reviewsSelected={reviewsSelected} />
         </div>
+
         <ListingReview 
           users={users}
           reviews={reviewsSelected}
@@ -172,6 +179,8 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
       <div>
         <GoogleMap lng={listing.longitude} lat={listing.latitude}/>
       </div>
+
+
     </div>    
   )
 }

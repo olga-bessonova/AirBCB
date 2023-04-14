@@ -1,6 +1,7 @@
+
 :root {
   --grey-color: #9da09d;
-  /* --red-brand-color: rgb(230, 30, 77) */
+  --red-brand-color: rgb(230, 30, 77)
   --red-brand-color: #F95E5C;
   --font-size: 18px;  
 }
@@ -38,7 +39,6 @@
   padding-top: 10px;
   padding-left: 10px;
   border: 1px solid var(--grey-color);
-  /* font-family: 'Montserrat', sans-serif; */
   font-weight: 400;
   font-size: var(--font-size);
 }
@@ -92,7 +92,6 @@
   cursor: pointer;
   display: inline-block;
   text-align: center;
-  /* touch-action: manipulation; */
   font-size: 16px;
   margin-top: 16px;
   height: 48px;
@@ -102,3 +101,4 @@
   color: rgb(255, 255, 255);
   border-radius: 8px;
 }
+

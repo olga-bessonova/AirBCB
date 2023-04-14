@@ -24,6 +24,14 @@ const ListingReview = ({users, reviews}) => {
               </div>
             </div>
 
+            {/* <div className='listing-review-update-button-container'>
+            {user && review.userId === user.id && (
+              <button className='listing-review-update-button' onClick={() => dispatch(reviewActions.updateReview(review))}>
+                Update
+              </button>
+            )}
+          </div>  */}
+
             <div className='listing-review-delete-button-container'>
             {user && review.userId === user.id && (
               <button className='listing-review-delete-button' onClick={() => dispatch(reviewActions.deleteReview(review.id))}>

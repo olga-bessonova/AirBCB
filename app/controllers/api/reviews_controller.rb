@@ -34,6 +34,25 @@ class Api::ReviewsController < ApplicationController
       end
   end
 
+  # def update
+  #   if @post.update(
+  #     user_id: params[:user_id]
+  #     listing_id: params[:listing_id],
+  #     body: params[:body],
+  #     cleanliness: params[:cleanliness],
+  #     communication: params[:communication],
+  #     checkin: params[:checkin],
+  #     accuracy: params[:accuracy],
+  #     location: params[:location],
+  #     value: params[:value],
+  #     rating: params[:rating]
+  #   )
+  #     render :show
+  #   else
+  #     render json: @post.errors.full_messages, status: 422
+  #   end
+  # end
+
   def destroy
     @review = Review.find(params[:id])
     @review.destroy if current_user.id == @review.user_id
