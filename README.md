@@ -1,24 +1,42 @@
-# README
+# WELCOME TO AIRBCB!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Live Site](https://airbbc.onrender.com)
 
-Things you may want to cover:
+### Introduction
+Airbcb is a clone of Airbnb and inspired by the movie The Holdiay. Airbnb is a service that provides a platform for users for lease their apartments for short-term. The idea behind Airbcb (air bed, car & breakfast) is to provide both an apartment as well as a car to another user for short-term use.
 
-* Ruby version
+The technologies that were used during the production of Airbcb
+* Languages: Javascript, Ruby on Rails, HTML, CSS
+* Frontend: React-Redux
+* Database: PostgreSQL
+* Hosting: Render
+* Asset Storage: AWS Simple Cloud Storage (S3)
 
-* System dependencies
+# MVPs
 
-* Configuration
+## Profiles
+A user is able to create a profile that persist to both front and backend. A user can also log in as a demo user.
 
-* Database creation
+![gif of profiles](frontend/src/assets/production_readme_gif/demo-login.gif)
 
-* Database initialization
+There are login and signup error handling:
+![gif of error handling](frontend/src/assets/production_readme_gif/signup-error-handling.gif)
 
-* How to run the test suite
+![gif of error handling](frontend/src/assets/production_readme_gif/login-error-handling.gif)
 
-* Services (job queues, cache servers, search engines, etc.)
+## Reviews
+A user who is not the owner of the apartment can create and delete review. Number of reviews and visual component of an apartment is being updated dynamically:
 
-* Deployment instructions
+![gif of reviews](frontend/src/assets/production_readme_gif/review.gif)
 
-* ...
+## Search
+There is a dynamic search that searches for a specified word in a title:
+
+![gif of reviews](frontend/src/assets/production_readme_gif/search.gif)
+
+### Thank you
+
+__airbcb__ was created in 2 weeks. I hope you will enjoy using it. Please feel free to contact me. My contact information can be found on the site using the live link above.
+
+
+
