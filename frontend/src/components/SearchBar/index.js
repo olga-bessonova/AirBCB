@@ -12,7 +12,6 @@ const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
 
   async function handleSearch(e) {
-    // debugger
     e.preventDefault();
     const query = e.target.value;
     await setSearchText(query);

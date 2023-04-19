@@ -39,12 +39,6 @@ const SignUpForm = (props) => {
       }
   };
 
-  // function handleModal() {
-  //   // console
-  //   debugger;
-  // }
-
-
   return (
       <div className="signup-modal">
         <div onClick={() => setShowSignupModal(false)} className="close-button">

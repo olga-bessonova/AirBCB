@@ -10,7 +10,6 @@ const Search = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    // debugger;
     useEffect(() => {
         const query = history.location.search.split("=")[1];
         dispatch(fetchSearchResults(query))

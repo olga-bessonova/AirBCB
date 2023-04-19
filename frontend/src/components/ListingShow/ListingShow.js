@@ -18,14 +18,10 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
   const dispatch = useDispatch();
   const listing = useSelector(getListing(listingId)); 
   const userId = listing ? listing.userId : null 
-  // debugger
   const user = useSelector(state => state.users ? state.users[userId] : null);
-  // console.log(user);
-  // console.log(user.photoUrl);
   const users = useSelector(state => state.users);
   const reviews = useSelector(state => Object.values(state.reviews));
   const reviewsSelected = reviews.filter(review => review.listingId == listingId);
-  console.log(reviewsSelected, "reviews selected");
   // if (reviewsSelected) {
 
   //   debugger

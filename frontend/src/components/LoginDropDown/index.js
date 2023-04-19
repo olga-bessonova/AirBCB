@@ -12,7 +12,6 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
     setMenu(open => !open);
   };
   const [menu, setMenu] = useState(false);
-  // console.log("hi")
 
   useEffect(() => {
     if (!menu) return;

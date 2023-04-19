@@ -1,8 +1,7 @@
 {
-  "name": "airbbc",
+  "name": "airbcb",
   "version": "1.0.0",
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
-  "main": "index.js",
+  "description": "airbnb clone",
   "directories": {
     "lib": "lib"
   },
@@ -11,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/olga-bessonova/airbbc_v2.git"
+    "url": "git+https://github.com/olga-bessonova/AirBCB.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/olga-bessonova/airbbc_v2/issues"
+    "url": "https://github.com/olga-bessonova/AirBCB/issues"
   },
-  "homepage": "https://github.com/olga-bessonova/airbbc_v2#readme",
+  "homepage": "https://github.com/olga-bessonova/AirBCB#readme",
   "engines": {
-    "node": "16.19.0"
+    "node": "16.x"
   }
 }
