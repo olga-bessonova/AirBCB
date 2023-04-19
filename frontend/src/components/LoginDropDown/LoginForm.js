@@ -53,7 +53,7 @@ function LoginForm(props) {
       </header>  
 
       <div className="welcome-message">
-        <p>Welcome to airbbc</p>
+        <p>Welcome to airbcb</p>
       </div>
       
       <form className="login-form" onSubmit={handleSubmit}>
