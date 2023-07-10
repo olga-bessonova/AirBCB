@@ -11,6 +11,11 @@
   padding-top: -10px;
 }
 
+.close-button:hover,
+.signup_span:hover {
+  cursor: pointer;
+}
+
 .login-modal {
   width: 500;
   height: 700;
@@ -130,8 +135,12 @@
   font-size: 22px;
 }
 
-.profile-dropdown-login li {
+.profile_dropdown_li {
   text-align: right;
   margin: 20px;
+}
+
+.profile_dropdown_li:hover {
+  cursor: pointer;
 }
 

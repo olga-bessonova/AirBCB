@@ -87,7 +87,7 @@ function LoginForm(props) {
         </div>
 
         <div className="signup-message">
-          <span className="signup-span" onClick={toggleSignup}>Sign up</span>
+          <span className="signup_span" onClick={toggleSignup}>Sign up</span>
         </div>
 
         <button type="submit" className="continue-button">Continue</button>

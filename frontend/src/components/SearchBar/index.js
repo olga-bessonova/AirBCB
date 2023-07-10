@@ -13,7 +13,7 @@ const SearchBar = () => {
 
   async function handleSearch(e) {
     e.preventDefault();
-    const query = e.target.value;
+    const query = e.target.value.toLowerCase();
     await setSearchText(query);
     dispatch(fetchSearchResults(query));
   }

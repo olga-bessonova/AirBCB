@@ -36,7 +36,7 @@ class Api::ReviewsController < ApplicationController
 
   # def update
   #   if @post.update(
-  #     user_id: params[:user_id]
+  #     user_id: params[:user_id],
   #     listing_id: params[:listing_id],
   #     body: params[:body],
   #     cleanliness: params[:cleanliness],
@@ -52,6 +52,30 @@ class Api::ReviewsController < ApplicationController
   #     render json: @post.errors.full_messages, status: 422
   #   end
   # end
+
+  def update
+    @review = Review.find(params[:id])
+
+    if current_user.id == @review.user_id
+      if @review.update(
+        user_id: params[:user_id],
+        listing_id: params[:listing_id],
+        body: params[:body],
+        cleanliness: params[:cleanliness],
+        communication: params[:communication],
+        checkin: params[:checkin],
+        accuracy: params[:accuracy],
+        location: params[:location],
+        value: params[:value],
+        rating: params[:rating])
+        render :show
+      else
+        render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity
+      end
+    else
+      render json: { errors: ["You can edit only your reviews"] }
+    end
+  end
 
   def destroy
     @review = Review.find(params[:id])
