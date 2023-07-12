@@ -6,7 +6,7 @@ import { fetchUser, fetchUsers } from "../../store/users"
 import { fetchReview, fetchReviews, getReviews } from "../../store/reviews"
 import { restoreSession } from "../../store/session"
 import ReviewForm from '../ReviewForm';
-// import ReviewForm from '../ReviewForm/ReviewUpdateCreate.js';
+import ReviewFormModal from '../ReviewForm/ReviewFormModal.js';
 import ListingReviewVisual from '../ListingReviewVisual';
 import ListingReview from '../ListingReview';
 import GoogleMap from '../GoogleMap'
@@ -134,6 +134,7 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
       {reviewModal && (
         <Modal onClose={() => setReviewModal(false)}>
           <ReviewForm user={user} listing={listing} setReviewModal={setReviewModal} />
+          {/* <NewReviewForm user={user} listing={listing} setReviewModal={setReviewModal} /> */}
         </Modal>
       )}
       

@@ -5,17 +5,17 @@ import * as reviewActions from '../../store/reviews';
 import StarRating from './StarRating';
 import './ReviewForm.css';
 
-// NewReviewForm handles Update and Create a review
-const NewReviewForm = ({user, listing, setReviewModal}) => {
+// ReviewFormModal handles Update and Create a review
+const ReviewFormModal = ({user, listing, setShowRewiewModal}) => {
 
   const dispatch = useDispatch();
   const { reviewId } = useParams();
-  
-  const formType = reviewId ? 'Update Post' : 'Create Post';
   let review = useSelector(reviewActions.getReview(reviewId));
-  if (formType === 'Create Post')
+  const formType = reviewId ? 'Update Review' : 'Create Review';
+
+  if (formType === 'Create Review') {
     review = { 
-        body: 5,
+        body: '',
         cleanliness: 5,
         communication: 5,
         checkin: 5,
@@ -23,6 +23,7 @@ const NewReviewForm = ({user, listing, setReviewModal}) => {
         location: 5,
         value: 5
       };
+  };  
 
   const [body, setBody] = useState(review.body);
   const [cleanliness, setCleanliness] = useState(review.cleanliness);
@@ -33,9 +34,7 @@ const NewReviewForm = ({user, listing, setReviewModal}) => {
   const [value, setValue] = useState(review.value);
 
   useEffect(() => {
-    if (reviewId) {
-      dispatch(reviewActions.fetchReview(reviewId));
-    }
+    if (reviewId) dispatch(reviewActions.fetchReview(reviewId));
   }, [dispatch, reviewId]);
 
   const update = (field) => {
@@ -73,7 +72,7 @@ const NewReviewForm = ({user, listing, setReviewModal}) => {
   const handlePostReview = (e) => {
       e.preventDefault();
       review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
-      formType === 'Create Post' ?
+      formType === 'Create Review' ?
         dispatch(reviewActions.createReview(review)) :
         dispatch(reviewActions.updateReview(review))
       .then(setReviewModal(false))
@@ -141,4 +140,4 @@ const NewReviewForm = ({user, listing, setReviewModal}) => {
   );
 }
 
-export default NewReviewForm;
+export default ReviewFormModal;

@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import * as reviewActions from '../../store/reviews';
+import ReviewFormModal from '../ReviewForm/ReviewFormModal.js';
 import './ListingReview.css';
 
 
 const ListingReview = ({users, reviews}) => {
   const dispatch = useDispatch();
+  const [showRewiewModal, setShowRewiewModal] = useState(false)
+
   const user = useSelector(state => state.session.user); 
 
   return (
@@ -36,8 +40,15 @@ const ListingReview = ({users, reviews}) => {
             {user && review.userId === user.id && (
               <button className='listing-review-delete-button' onClick={() => dispatch(reviewActions.deleteReview(review.id))}>
                 <i className="fa-solid fa-trash-can"></i> 
-              </button>
+              </button> 
+                           
             )}
+
+            {/* {user && review.userId === user.id && (
+              <button className='listing-review-edit-button' onClick={() => {setShowRewiewModal(true)}}>
+                <i className="fa-solid fa-pen"></i>
+              </button>              
+            )} */}
           </div>  
 
           </div>
@@ -47,6 +58,12 @@ const ListingReview = ({users, reviews}) => {
     
         </div>
       ))}
+
+        {/* {showRewiewModal && (
+          <Modal onClose={(e) => {setShowRewiewModal(false)}}>
+            <ReviewFormModal user={user} setShowRewiewModal={setShowRewiewModal}/>
+          </Modal>
+        )} */}
     </div>
   )
 }
