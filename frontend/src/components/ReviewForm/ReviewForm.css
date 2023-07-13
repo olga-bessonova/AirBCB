@@ -10,15 +10,13 @@
   margin-top: 20px;
 }
 
-.review-container-header {
+.review_container_header {
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 42px;    
-  padding-bottom: 6px;
+  padding-bottom: 10px;
   margin-bottom: 32px;
   border-bottom: 1px solid #eaeaea;
-  width: calc(100% + 48px);
 }
 
 .review-form {

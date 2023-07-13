@@ -9,6 +9,18 @@ import './ReviewForm.css';
 const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
 
   const dispatch = useDispatch();
+  // const review = props.review !== undefined ? props.review : 'default value';
+  const { reviewId } = useParams();
+  // let review = useSelector(reviewActions.getReview(reviewId));
+  // let review = review;
+  // const formType = reviewId ? 'Update Review' : 'Create Review';
+  // const formType = review ? 'Update Review' : 'Create Review';
+  // let formType;
+  // if (review) {
+  //   let formType = 'Update Review'
+  // } else {
+  //   let formType = 'Create Review'
+  // }
   // console.log(review);
   // console.log(typeof review === 'undefined');
   // debugger
@@ -78,19 +90,33 @@ const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
   }
 
   
-  const handlePostReview = (e) => {
-      e.preventDefault();
-      review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
-      formType === 'Create Review' ?
-        dispatch(reviewActions.createReview(review)) :
-        dispatch(reviewActions.updateReview(review))
-      .then(setReviewModal(false))
-  }
+  // const handlePostReview = (e) => {
+  //     e.preventDefault();
+  //     review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
+  //     formType === 'Create Review' ?
+  //       dispatch(reviewActions.createReview(review)) 
+  //     .then(setReviewModal(false))
+  //       :
+  //       dispatch(reviewActions.updateReview(review))
+  //     .then(setReviewModal(false))
+  // }
+
+  const handlePostReview = async (e) => {
+    e.preventDefault();
+    review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
+      {
+        formType === 'Create Review' ?
+        await dispatch(reviewActions.createReview(review)) :
+        await dispatch(reviewActions.updateReview(review))
+      }
+    setReviewModal(false)
+      
+}
 
   return (
     <div className='review-container'>
       <form onSubmit={handlePostReview} className='review-form'>
-        <h2>{formType}</h2>
+        <h2 className='review_container_header'>{formType}</h2>
         <label>Cleanliness
           <div className='rating'>
             <StarRating rating={cleanliness} setRating={setCleanliness} onChange={update('cleanliness')}/>

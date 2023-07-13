@@ -5,7 +5,7 @@ import { fetchListing, getListing } from "../../store/listings"
 import { fetchUser, fetchUsers } from "../../store/users"
 import { fetchReview, fetchReviews, getReviews } from "../../store/reviews"
 import { restoreSession } from "../../store/session"
-import ReviewForm from '../ReviewForm';
+// import ReviewForm from '../ReviewForm';
 import ReviewFormModal from '../ReviewForm/ReviewFormModal.js';
 import ListingReviewVisual from '../ListingReviewVisual';
 import ListingReview from '../ListingReview';
@@ -134,21 +134,9 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
         <div  className="reviews-container-header">
           <span className="review-star">&#9733;</span> 
           <span className='review-score'>{aveRating}</span>
-          {/* <span className='review-score'>4.9</span> */}
-          {/* <span className='review-score'>4.9</span> */}
           <span className='review-dot'>·</span>
           <span className='review-amount'>{reviewsSelected.length} reviews</span>       
-          {/* <span className='review-amount'>26 reviews</span> */}
         </div>
-
-        {/* <div className="container">
-          <div className="item">Cleanliness</div>
-          <div className="item">Accuracy</div>
-          <div className="item">Communication</div>
-          <div className="item">Location</div>
-          <div className="item">Check-in</div>
-          <div className="item">Value</div>
-        </div> */}
 
         <div className="visual-container">
           <ListingReviewVisual reviewsSelected={reviewsSelected} />

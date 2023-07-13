@@ -29,33 +29,25 @@ const ListingReview = ({users, reviews, listing}) => {
               </div>
             </div>
 
-            {/* <div className='listing-review-update-button-container'>
-            {user && review.userId === user.id && (
-              <button className='listing-review-update-button' onClick={() => dispatch(reviewActions.updateReview(review))}>
-                Update
-              </button>
-            )}
-          </div>  */}
-
             <div className='listing-review-delete-button-container'>
-            {user && review.userId === user.id && (
-              <button className='listing-review-delete-button' onClick={() => dispatch(reviewActions.deleteReview(review.id))}>
-                <i className="fa-solid fa-trash-can"></i> 
-              </button> 
-                           
-            )}
+              {user && review.userId === user.id && (
+                <button className='listing-review-edit-button' onClick={() => {setReviewModal(true)}}>
+                  <i className="fa-solid fa-pen"></i>
+                </button>              
+              )}
 
-            {user && review.userId === user.id && (
-              <button className='listing-review-edit-button' onClick={() => {setReviewModal(true)}}>
-                <i className="fa-solid fa-pen"></i>
-              </button>              
-            )}
+              {reviewModal && (
+                <Modal onClose={(e) => {setReviewModal(false)}}>
+                  <ReviewFormModal user={user} listing={listing} reviewId={review.id} setReviewModal={setReviewModal}/>
+                </Modal>
+              )}
+              {user && review.userId === user.id && (
+                <button className='listing-review-delete-button' onClick={() => dispatch(reviewActions.deleteReview(review.id))}>
+                  <i className="fa-solid fa-trash-can"></i> 
+                </button>                            
+              )}
 
-            {reviewModal && (
-              <Modal onClose={(e) => {setReviewModal(false)}}>
-                <ReviewFormModal user={user} listing={listing} review={review} setReviewModal={setReviewModal}/>
-              </Modal>
-            )}
+            
           </div>  
 
           </div>
