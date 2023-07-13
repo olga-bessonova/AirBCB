@@ -19,14 +19,15 @@ const ReviewForm = ({user, listing, setReviewModal}) => {
   const handlePostReview = (e) => {
       e.preventDefault();
       dispatch(reviewActions.createReview({
-          listingId:listing.id,
-          body,
-          cleanliness,
-          communication,
-          checkin,
-          accuracy,
-          location,
-          value
+        userId: user.id,
+        listingId: listing.id,
+        body,
+        cleanliness,
+        communication,
+        checkin,
+        accuracy,
+        location,
+        value
       }))
       .then(setReviewModal(false))
   }

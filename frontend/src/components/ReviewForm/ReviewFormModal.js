@@ -6,7 +6,7 @@ import StarRating from './StarRating';
 import './ReviewForm.css';
 
 // ReviewFormModal handles Update and Create a review
-const ReviewFormModal = ({user, listing, setShowRewiewModal}) => {
+const ReviewFormModal = ({user, listing, setReviewModal}) => {
 
   const dispatch = useDispatch();
   const { reviewId } = useParams();
@@ -15,6 +15,8 @@ const ReviewFormModal = ({user, listing, setShowRewiewModal}) => {
 
   if (formType === 'Create Review') {
     review = { 
+        userId: user.id,
+        listingId: listing.id,
         body: '',
         cleanliness: 5,
         communication: 5,
@@ -75,7 +77,7 @@ const ReviewFormModal = ({user, listing, setShowRewiewModal}) => {
       formType === 'Create Review' ?
         dispatch(reviewActions.createReview(review)) :
         dispatch(reviewActions.updateReview(review))
-      .then(setShowRewiewModal(false))
+      .then(setReviewModal(false))
   }
 
   return (

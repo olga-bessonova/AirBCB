@@ -133,8 +133,8 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
 
       {reviewModal && (
         <Modal onClose={() => setReviewModal(false)}>
-          <ReviewForm user={user} listing={listing} setReviewModal={setReviewModal} />
-          {/* <NewReviewForm user={user} listing={listing} setReviewModal={setReviewModal} /> */}
+          {/* <ReviewForm user={user} listing={listing} setReviewModal={setReviewModal} /> */}
+          <ReviewFormModal user={user} listing={listing} setReviewModal={setReviewModal} />
         </Modal>
       )}
       
