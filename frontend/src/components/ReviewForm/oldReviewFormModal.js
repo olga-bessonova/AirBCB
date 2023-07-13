@@ -9,38 +9,79 @@ import './ReviewForm.css';
 const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
 
   const dispatch = useDispatch();
-  // console.log(review);
-  // console.log(typeof review === 'undefined');
+  const [body, setBody] = useState("");
+  const [cleanliness, setCleanliness] = useState(5);
+  const [communication, setCommunication] = useState(5);
+  const [checkin, setCheckin] = useState(5);
+  const [accuracy, setAccuracy] = useState(5);
+  const [location, setLocation] = useState(5);
+  const [value, setValue] = useState(5);
+  console.log(review);
+  console.log(typeof review === 'undefined');
   // debugger
   let formType;
-  if (typeof review === 'undefined') {
+  // if (typeof review === 'undefined') {
+    if (!review) {
+      
     formType = 'Create Review'
     // let review
-    review = { 
-      userId: user.id,
-      listingId: listing.id,
-      body: '',
-      cleanliness: 5,
-      communication: 5,
-      checkin: 5,
-      accuracy: 5,
-      location: 5,
-      value: 5
-    };
+    // review = { 
+    //   userId: user.id,
+    //   listingId: listing.id,
+    //   body: '',
+    //   cleanliness: 5,
+    //   communication: 5,
+    //   checkin: 5,
+    //   accuracy: 5,
+    //   location: 5,
+    //   value: 5
+    // };
   } else {
     formType = 'Update Review'
+    setBody(review.body);
+    setCleanliness(review.cleanliness);
+    setCommunication(review.communication);
+    setCheckin(review.checkin);
+    setAccuracy(review.accuracy);
+    setLocation(review.location);
+    setValue(review.value);
   };
-  
+  // const review = props.review !== undefined ? props.review : 'default value';
+  // const { reviewId } = useParams();
+  // let review = useSelector(reviewActions.getReview(reviewId));
+  // let review = review;
+  // const formType = reviewId ? 'Update Review' : 'Create Review';
+  // const formType = review ? 'Update Review' : 'Create Review';
+  // let formType;
+  // if (review) {
+  //   let formType = 'Update Review'
+  // } else {
+  //   let formType = 'Create Review'
+  // }
+
+  // if (formType === 'Create Review') {
+  //   let review = { 
+  //       userId: user.id,
+  //       listingId: listing.id,
+  //       body: '',
+  //       cleanliness: 5,
+  //       communication: 5,
+  //       checkin: 5,
+  //       accuracy: 5,
+  //       location: 5,
+  //       value: 5
+  //     };
+  // };  
 
   // console.log(review.body)
   // debugger
-  const [body, setBody] = useState(review.body);
-  const [cleanliness, setCleanliness] = useState(review.cleanliness);
-  const [communication, setCommunication] = useState(review.communication);
-  const [checkin, setCheckin] = useState(review.checkin);
-  const [accuracy, setAccuracy] = useState(review.accuracy);
-  const [location, setLocation] = useState(review.location);
-  const [value, setValue] = useState(review.value);
+  // const [body, setBody] = useState(review.body);
+  // const [cleanliness, setCleanliness] = useState(review.cleanliness);
+  // const [communication, setCommunication] = useState(review.communication);
+  // const [checkin, setCheckin] = useState(review.checkin);
+  // const [accuracy, setAccuracy] = useState(review.accuracy);
+  // const [location, setLocation] = useState(review.location);
+  // const [value, setValue] = useState(review.value);
 
   useEffect(() => {
     if (review.id) dispatch(reviewActions.fetchReview(review.id));
@@ -82,7 +123,17 @@ const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
       e.preventDefault();
       review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
       formType === 'Create Review' ?
-        dispatch(reviewActions.createReview(review)) :
+        dispatch(reviewActions.createReview({
+          userId: user.id,
+          listingId: listing.id,
+          body,
+          cleanliness,
+          communication,
+          checkin,
+          accuracy,
+          location,
+          value
+        })) :
         dispatch(reviewActions.updateReview(review))
       .then(setReviewModal(false))
   }
