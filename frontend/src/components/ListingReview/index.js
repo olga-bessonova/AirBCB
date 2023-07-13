@@ -38,7 +38,7 @@ const ListingReview = ({users, reviews, listing}) => {
 
               {reviewModal && (
                 <Modal onClose={(e) => {setReviewModal(false)}}>
-                  <ReviewFormModal user={user} listing={listing} reviewId={review.id} setReviewModal={setReviewModal}/>
+                  <ReviewFormModal user={user} listing={listing} review={review} setReviewModal={setReviewModal}/>
                 </Modal>
               )}
               {user && review.userId === user.id && (
