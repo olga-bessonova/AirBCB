@@ -5,7 +5,7 @@ import ReviewFormModal from '../ReviewForm/ReviewFormModal.js';
 import './ListingReview.css';
 
 
-const ListingReview = ({users, reviews}) => {
+const ListingReview = ({users, reviews, listing}) => {
   const dispatch = useDispatch();
   const [showRewiewModal, setShowRewiewModal] = useState(false)
 
@@ -61,7 +61,7 @@ const ListingReview = ({users, reviews}) => {
 
         {/* {showRewiewModal && (
           <Modal onClose={(e) => {setShowRewiewModal(false)}}>
-            <ReviewFormModal user={user} setShowRewiewModal={setShowRewiewModal}/>
+            <ReviewFormModal user={user} listing={listing} setShowRewiewModal={setShowRewiewModal}/>
           </Modal>
         )} */}
     </div>

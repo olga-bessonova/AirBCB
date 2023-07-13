@@ -166,6 +166,7 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
         <ListingReview 
           users={users}
           reviews={reviewsSelected}
+          listing={listing}
         />
       </div>
 
