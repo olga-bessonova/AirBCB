@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import * as reviewActions from '../../store/reviews';
+import { Modal } from '../../context/Modal';
 import ReviewFormModal from '../ReviewForm/ReviewFormModal.js';
 import './ListingReview.css';
 
 
 const ListingReview = ({users, reviews, listing}) => {
   const dispatch = useDispatch();
-  const [showRewiewModal, setShowRewiewModal] = useState(false)
+  const [reviewModal, setReviewModal] = useState(false)
 
   const user = useSelector(state => state.session.user); 
 
@@ -44,11 +45,17 @@ const ListingReview = ({users, reviews, listing}) => {
                            
             )}
 
-            {/* {user && review.userId === user.id && (
-              <button className='listing-review-edit-button' onClick={() => {setShowRewiewModal(true)}}>
+            {user && review.userId === user.id && (
+              <button className='listing-review-edit-button' onClick={() => {setReviewModal(true)}}>
                 <i className="fa-solid fa-pen"></i>
               </button>              
-            )} */}
+            )}
+
+            {reviewModal && (
+              <Modal onClose={(e) => {setReviewModal(false)}}>
+                <ReviewFormModal user={user} listing={listing} review={review} setReviewModal={setReviewModal}/>
+              </Modal>
+            )}
           </div>  
 
           </div>
@@ -59,11 +66,7 @@ const ListingReview = ({users, reviews, listing}) => {
         </div>
       ))}
 
-        {/* {showRewiewModal && (
-          <Modal onClose={(e) => {setShowRewiewModal(false)}}>
-            <ReviewFormModal user={user} listing={listing} setShowRewiewModal={setShowRewiewModal}/>
-          </Modal>
-        )} */}
+
     </div>
   )
 }

@@ -6,12 +6,27 @@ import StarRating from './StarRating';
 import './ReviewForm.css';
 
 // ReviewFormModal handles Update and Create a review
-const ReviewFormModal = ({user, listing, setReviewModal}) => {
+const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
 
   const dispatch = useDispatch();
-  const { reviewId } = useParams();
-  let review = useSelector(reviewActions.getReview(reviewId));
-  const formType = reviewId ? 'Update Review' : 'Create Review';
+  let formType;
+  if (review == 'undefined') {
+    formType = 'Create Review'
+  } else {
+    formType = 'Update Review'
+  };
+  // const review = props.review !== undefined ? props.review : 'default value';
+  // const { reviewId } = useParams();
+  // let review = useSelector(reviewActions.getReview(reviewId));
+  // let review = review;
+  // const formType = reviewId ? 'Update Review' : 'Create Review';
+  // const formType = review ? 'Update Review' : 'Create Review';
+  // let formType;
+  // if (review) {
+  //   let formType = 'Update Review'
+  // } else {
+  //   let formType = 'Create Review'
+  // }
 
   if (formType === 'Create Review') {
     review = { 
@@ -36,8 +51,8 @@ const ReviewFormModal = ({user, listing, setReviewModal}) => {
   const [value, setValue] = useState(review.value);
 
   useEffect(() => {
-    if (reviewId) dispatch(reviewActions.fetchReview(reviewId));
-  }, [dispatch, reviewId]);
+    if (review.id) dispatch(reviewActions.fetchReview(review.id));
+  }, [dispatch, review.id]);
 
   const update = (field) => {
     return e => {
