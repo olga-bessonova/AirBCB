@@ -75,7 +75,7 @@ const ReviewFormModal = ({user, listing, setShowRewiewModal}) => {
       formType === 'Create Review' ?
         dispatch(reviewActions.createReview(review)) :
         dispatch(reviewActions.updateReview(review))
-      .then(setReviewModal(false))
+      .then(setShowRewiewModal(false))
   }
 
   return (
