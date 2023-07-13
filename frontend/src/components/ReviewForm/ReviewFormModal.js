@@ -9,9 +9,25 @@ import './ReviewForm.css';
 const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
 
   const dispatch = useDispatch();
+  console.log(review);
+  console.log(typeof review === 'undefined');
+  // debugger
   let formType;
-  if (review == 'undefined') {
+  // if (typeof review === 'undefined') {
+    if (!review) {
     formType = 'Create Review'
+    let review
+    review = { 
+      userId: user.id,
+      listingId: listing.id,
+      body: '',
+      cleanliness: 5,
+      communication: 5,
+      checkin: 5,
+      accuracy: 5,
+      location: 5,
+      value: 5
+    };
   } else {
     formType = 'Update Review'
   };
@@ -28,20 +44,22 @@ const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
   //   let formType = 'Create Review'
   // }
 
-  if (formType === 'Create Review') {
-    review = { 
-        userId: user.id,
-        listingId: listing.id,
-        body: '',
-        cleanliness: 5,
-        communication: 5,
-        checkin: 5,
-        accuracy: 5,
-        location: 5,
-        value: 5
-      };
-  };  
+  // if (formType === 'Create Review') {
+  //   let review = { 
+  //       userId: user.id,
+  //       listingId: listing.id,
+  //       body: '',
+  //       cleanliness: 5,
+  //       communication: 5,
+  //       checkin: 5,
+  //       accuracy: 5,
+  //       location: 5,
+  //       value: 5
+  //     };
+  // };  
 
+  console.log(review.body)
+  debugger
   const [body, setBody] = useState(review.body);
   const [cleanliness, setCleanliness] = useState(review.cleanliness);
   const [communication, setCommunication] = useState(review.communication);
