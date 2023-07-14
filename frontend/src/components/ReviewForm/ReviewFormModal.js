@@ -13,7 +13,6 @@ const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
   let formType;
   if (typeof review === 'undefined') {
     formType = 'Create Review'
-    // let review
     review = { 
       userId: user.id,
       listingId: listing.id,
