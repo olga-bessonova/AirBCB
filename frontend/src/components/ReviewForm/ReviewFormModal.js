@@ -9,21 +9,7 @@ import './ReviewForm.css';
 const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
 
   const dispatch = useDispatch();
-  // const review = props.review !== undefined ? props.review : 'default value';
-  // const { reviewId } = useParams();
-  // let review = useSelector(reviewActions.getReview(reviewId));
-  // let review = review;
-  // const formType = reviewId ? 'Update Review' : 'Create Review';
-  // const formType = review ? 'Update Review' : 'Create Review';
-  // let formType;
-  // if (review) {
-  //   let formType = 'Update Review'
-  // } else {
-  //   let formType = 'Create Review'
-  // }
-  // console.log(review);
-  // console.log(typeof review === 'undefined');
-  // debugger
+  
   let formType;
   if (typeof review === 'undefined') {
     formType = 'Create Review'
