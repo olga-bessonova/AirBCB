@@ -1,6 +1,6 @@
-import './ListingReviewVisual.css';
+import './ReviewVisual.css';
 
-const ListingReviewVisual = ({reviewsSelected}) => {
+const ReviewVisual = ({reviewsSelected}) => {
 
     let avgCleanliness = 0;
     let avgCommunication = 0;
@@ -117,4 +117,4 @@ const ListingReviewVisual = ({reviewsSelected}) => {
     );
 }
  
-export default ListingReviewVisual;
+export default ReviewVisual;

@@ -10,7 +10,7 @@ const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
 
   const dispatch = useDispatch();
   // const review = props.review !== undefined ? props.review : 'default value';
-  const { reviewId } = useParams();
+  // const { reviewId } = useParams();
   // let review = useSelector(reviewActions.getReview(reviewId));
   // let review = review;
   // const formType = reviewId ? 'Update Review' : 'Create Review';

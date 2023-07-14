@@ -7,8 +7,8 @@ import { fetchReview, fetchReviews, getReviews } from "../../store/reviews"
 import { restoreSession } from "../../store/session"
 // import ReviewForm from '../ReviewForm';
 import ReviewFormModal from '../ReviewForm/ReviewFormModal.js';
-import ListingReviewVisual from '../ListingReviewVisual';
-import ListingReview from '../ListingReview';
+import ReviewIndex from '../ReviewIndex/ReviewIndex.js';
+import ReviewVisual from '../ReviewVisual/ReviewVisual.js';
 import GoogleMap from '../GoogleMap'
 import { Modal } from '../../context/Modal';
 import './ListingShow.css'
@@ -139,10 +139,10 @@ export const ListingShow = ({showLoginModal, setShowLoginModal}) => {
         </div>
 
         <div className="visual-container">
-          <ListingReviewVisual reviewsSelected={reviewsSelected} />
+          <ReviewVisual reviewsSelected={reviewsSelected} />
         </div>
 
-        <ListingReview 
+        <ReviewIndex 
           users={users}
           reviews={reviewsSelected}
           listing={listing}
