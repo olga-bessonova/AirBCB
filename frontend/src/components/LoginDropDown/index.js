@@ -35,7 +35,7 @@ function LoginDropDown({setShowLoginModal, showLoginModal, setLoginMessage}) {
               <li className="profile_dropdown_li" onClick={()=> setShowLoginModal(true)}>Log in</li>
               <li className="profile_dropdown_li" onClick={()=> setShowSignupModal(true)}>Sign up</li>
               <li className='dropdown-divider'></li>
-              <li className="profile_dropdown_li" onClick={()=> setShowLoginModal(true)}>airbcb your home</li>
+              {/* <li className="profile_dropdown_li" onClick={()=> setShowLoginModal(true)}>airbcb your home</li> */}
               {/* <li onClick={()=> setShowLoginModal(true)}>Account</li> */}
           </ul>
       )}
