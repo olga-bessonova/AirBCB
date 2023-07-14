@@ -1,22 +1,22 @@
-.review-show-container {
+.review_show_container {
   margin-left: 5px;
   margin-right: 10px;
   margin-bottom: 20px;
 }
 
-.review-show-header {
+.review_show_header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 30px;
 }
 
-.review-show-header-img-name {
+.review_show_header_img_name {
   display: flex;
   align-items: center;
 }
 
-.show-review-image {
+.show_review_image {
   height: 45px;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -25,11 +25,11 @@
   margin-left: 5px;
 }
 
-.review-user-info {
+.review_user_info {
   font-size: var(--font-size);
   font-weight: 600;
 }
-.review-body-container {
+.review_body_container {
   margin: 10px;
   font-size: var(--font-size-1);
   font-weight: 600;
@@ -38,11 +38,11 @@
 
 }
 
-.listing-review-delete-button-container {
+.listing_review_delete_button_container {
   margin-right: 10px;
 }
 
-.listing-review-delete-button {
+.listing_review_delete_button {
   /* border: 3px solid red; */
   margin: 3px;
   font-weight: 400;
