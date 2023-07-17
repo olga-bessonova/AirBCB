@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as reviewActions from '../../store/reviews';
 import StarRating from './StarRating';
 import './ReviewForm.css';
@@ -38,6 +37,8 @@ const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
   const [accuracy, setAccuracy] = useState(review.accuracy);
   const [location, setLocation] = useState(review.location);
   const [value, setValue] = useState(review.value);
+
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     if (review.id) dispatch(reviewActions.fetchReview(review.id));
@@ -86,16 +87,49 @@ const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
   //     .then(setReviewModal(false))
   // }
 
-  const handlePostReview = async (e) => {
-    e.preventDefault();
-    review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
-      {
-        formType === 'Create Review' ?
-        await dispatch(reviewActions.createReview(review)) :
-        await dispatch(reviewActions.updateReview(review))
+//   const handlePostReview = async (e) => {
+//     e.preventDefault();
+//     review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
+//       {
+//         formType === 'Create Review' ?
+//         await dispatch(reviewActions.createReview(review)) :
+//         await dispatch(reviewActions.updateReview(review))
+//       }
+//     setReviewModal(false)      
+// }
+
+const handlePostReview = async (e) => {
+  e.preventDefault();
+  setErrors([]);
+  review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
+  if (formType === 'Create Review') {
+    return dispatch(reviewActions.createReview(review))
+    .catch(async (res) => {
+      let data;
+      try{
+        data = await res.clone().json();
+      } catch {
+        data = await res.text();
       }
-    setReviewModal(false)
-      
+      if (data?.errors) setErrors(data.errors);
+      else if (data) setErrors([data])
+      else setErrors([res.statusText]);
+    })
+  } else {
+    return dispatch(reviewActions.updateReview(review))
+    .catch(async (res) => {
+      let data;
+      try{
+        data = await res.clone().json();
+      } catch {
+        data = await res.text();
+      }
+      if (data?.errors) setErrors(data.errors);
+      else if (data) setErrors([data])
+      else setErrors([res.statusText]);
+    })
+  } 
+  setReviewModal(false)      
 }
 
   return (
@@ -145,6 +179,12 @@ const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
         {/* <div className='review-write-container'>Write a review</div> */}
         {/* <div className='review-howwas-container'>How was your stay?</div> */}
 
+        <div className="error-message">
+          <ul>
+            {errors.map(error => <li key={error}>{error}</li>)}
+          </ul>
+        </div>
+        
         <textarea className='review-box'
           placeholder='How was your experience?'
           value={body}
