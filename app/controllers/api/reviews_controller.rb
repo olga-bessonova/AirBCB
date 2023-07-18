@@ -30,8 +30,8 @@ class Api::ReviewsController < ApplicationController
       if @review.save
         render :show
       else
-        render json: { errors: ['Please write a review'] }, 
-        status: :unprocessable_entity
+        render json: { errors: ['Please write a review'] } 
+        # status: :unprocessable_entity
         # render json: @review.errors.full_messages, status: :unprocessable_entity
       end
   end

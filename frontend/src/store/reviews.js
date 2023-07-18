@@ -61,6 +61,9 @@ export const createReview = review => async (dispatch) => {
     const review = await response.json();
     dispatch(receiveReview(review));
   }
+  else {
+    return 'test'
+  }
 };
 
 export const updateReview = review => async (dispatch) => {

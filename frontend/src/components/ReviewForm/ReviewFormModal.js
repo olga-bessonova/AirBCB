@@ -100,11 +100,13 @@ const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
 
 const handlePostReview = async (e) => {
   e.preventDefault();
-  setErrors([]);
+  // setErrors([]);
+  // console.log(errors)
   review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
   if (formType === 'Create Review') {
     return dispatch(reviewActions.createReview(review))
-    .catch(async (res) => {
+    .then(async (res) => {
+      console.log(res)
       let data;
       try{
         data = await res.clone().json();
@@ -114,7 +116,12 @@ const handlePostReview = async (e) => {
       if (data?.errors) setErrors(data.errors);
       else if (data) setErrors([data])
       else setErrors([res.statusText]);
+      console.log(data)
+      // if (data?.errors) setErrors(data.errors)
+      // else setReviewModal(false)
     })
+    // .then(() => setReviewModal(false));
+    // .then(setReviewModal(false))
   } else {
     return dispatch(reviewActions.updateReview(review))
     .catch(async (res) => {
@@ -128,8 +135,11 @@ const handlePostReview = async (e) => {
       else if (data) setErrors([data])
       else setErrors([res.statusText]);
     })
-  } 
-  setReviewModal(false)      
+    // .then(setReviewModal(false))
+          
+  }
+  // console.log(errors)
+  setReviewModal(false)
 }
 
   return (
@@ -184,7 +194,7 @@ const handlePostReview = async (e) => {
             {errors.map(error => <li key={error}>{error}</li>)}
           </ul>
         </div>
-        
+
         <textarea className='review-box'
           placeholder='How was your experience?'
           value={body}
