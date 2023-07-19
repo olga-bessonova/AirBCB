@@ -87,60 +87,62 @@ const ReviewFormModal = ({user, listing, review, setReviewModal}) => {
   //     .then(setReviewModal(false))
   // }
 
-  const handlePostReview = async (e) => {
-    e.preventDefault();
-    review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
-      {
-        formType === 'Create Review' ?
-        await dispatch(reviewActions.createReview(review)) :
-        await dispatch(reviewActions.updateReview(review))
-      }
-    setReviewModal(false)      
-}
-
-// const handlePostReview = async (e) => {
-//   e.preventDefault();
-//   // setErrors([]);
-//   // console.log(errors)
-//   review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
-//   if (formType === 'Create Review') {
-//     return dispatch(reviewActions.createReview(review))
-//     .then(async (res) => {
-//       console.log(res)
-//       let data;
-//       try{
-//         data = await res.clone().json();
-//       } catch {
-//         data = await res.text();
+//   const handlePostReview = async (e) => {
+//     e.preventDefault();
+//     review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
+//       {
+//         formType === 'Create Review' ?
+//         await dispatch(reviewActions.createReview(review)) :
+//         await dispatch(reviewActions.updateReview(review))
 //       }
-//       if (data?.errors) setErrors(data.errors);
-//       else if (data) setErrors([data])
-//       else setErrors([res.statusText]);
-//       console.log(data)
-//       // if (data?.errors) setErrors(data.errors)
-//       // else setReviewModal(false)
-//     })
-//     // .then(() => setReviewModal(false));
-//     // .then(setReviewModal(false))
-//   } else {
-//     return dispatch(reviewActions.updateReview(review))
-//     .catch(async (res) => {
-//       let data;
-//       try{
-//         data = await res.clone().json();
-//       } catch {
-//         data = await res.text();
-//       }
-//       if (data?.errors) setErrors(data.errors);
-//       else if (data) setErrors([data])
-//       else setErrors([res.statusText]);
-//     })
-//     // .then(setReviewModal(false))
-          
-//   }
-//   // console.log(errors)
-//   setReviewModal(false)
+//     setReviewModal(false)      
 // }
+
+const handlePostReview = async (e) => {
+  e.preventDefault();
+  setErrors([]);
+  // console.log(errors)
+  review = {...review, body, cleanliness, communication, checkin, accuracy, location, value};
+  if (formType === 'Create Review') {
+    return dispatch(reviewActions.createReview(review))
+    .finally(() => setReviewModal(errors.length === 0))
+    .catch(async (res) => {
+      // console.log(res)
+      let data;
+      try{
+        data = await res.clone().json();
+      } catch {
+        data = await res.text();
+      }
+      if (data?.errors) setErrors(data.errors);
+      else if (data) setErrors([data])
+      else setErrors([res.statusText]);
+      // console.log(data)
+      // if (data?.errors) setErrors(data.errors)
+      // else setReviewModal(false)
+    })
+    // .then(() => setReviewModal(false));
+    // .then(setReviewModal(false))
+  } else {
+    return dispatch(reviewActions.updateReview(review))
+    .finally(() => setReviewModal(errors.length === 0))
+    .catch(async (res) => {
+      let data;
+      try{
+        data = await res.clone().json();
+      } catch {
+        data = await res.text();
+      }
+      if (data?.errors) setErrors(data.errors);
+      else if (data) setErrors([data])
+      else setErrors([res.statusText]);
+    })
+    // .then(setReviewModal(false))
+          
+  }
+  // console.log(errors)
+  setReviewModal(false)
+}
 
   return (
     <div className='review-container'>
