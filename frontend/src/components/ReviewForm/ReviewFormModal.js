@@ -105,6 +105,7 @@ const handlePostReview = async (e) => {
   if (formType === 'Create Review') {
     return dispatch(reviewActions.createReview(review))
     .finally(() => setReviewModal(errors.length === 0))
+    // .finally(() => setReviewModal(false))
     .catch(async (res) => {
       let data;
       try{
