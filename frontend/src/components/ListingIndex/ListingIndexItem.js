@@ -31,7 +31,7 @@ const ListingIndexItem = ({ listing }) => {
         <div className='description-container'>
           {/* <p className='listing-title'>{listing.title.length < 25 ? listing.title : `${listing.title.slice(0,25)}...`}, {listing.city}</p> */}
           <p className='listing-title'>{listing.title.length < 25 ? listing.title : `${listing.title.slice(0,25)}...`}</p>
-          <p className='description-p'>{listing.description.length < 35 ? listing.description : `${listing.description.slice(0,35)}...`}</p>
+          <p className='description-p'>{listing.description.length < 25 ? listing.description : `${listing.description.slice(0,35)}...`}</p>
           <p className='price-p'><span className='price-span'>{`$${listing.price}`}</span> night</p>           
         </div>
 

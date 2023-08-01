@@ -3,7 +3,7 @@
 [Live Site](https://airbcb.onrender.com/)
 
 ### Introduction
-Airbcb is a clone of Airbnb and inspired by the movie The Holdiay. Airbnb is a service that provides a platform for users for lease their apartments for short-term. The idea behind Airbcb (air bed, car & breakfast) is to provide both an apartment as well as a car to another user for short-term use.
+Airbcb is a clone of Airbnb and inspired by the movie The Holiday. Airbnb is a service that provides a platform for users for lease their apartments for short-term. The idea behind Airbcb (air bed, car & breakfast) is to provide both an apartment as well as a car to another user for short-term use.
 
 The technologies that were used during the production of Airbcb
 * Languages: Javascript, Ruby on Rails, HTML, CSS
