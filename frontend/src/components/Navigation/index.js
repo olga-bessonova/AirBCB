@@ -66,10 +66,10 @@ const Navigation = ({showLoginModal, setShowLoginModal}) => {
         </div>
 
         <div>
-          <a className = 'github-link' href="https://github.com/olga-bessonova/">
+          <a className = 'github-link' href="https://github.com/olga-bessonova/" target="_blank">
             <i className="fa-brands fa-github fa-2x"></i>
           </a>
-          <a className = 'linkedin-link' href="https://www.linkedin.com/in/olgabessonova-/">
+          <a className = 'linkedin-link' href="https://www.linkedin.com/in/olgabessonova-/" target="_blank">
             <i className="fa-brands fa-linkedin-in fa-2x"></i>
           </a>
         </div>
