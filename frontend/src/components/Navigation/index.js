@@ -69,7 +69,7 @@ const Navigation = ({showLoginModal, setShowLoginModal}) => {
           <a className = 'github-link' href="https://github.com/olga-bessonova/BunnyHop">
             <i className="fa-brands fa-github fa-2x"></i>
           </a>
-          <a className = 'linkedin-link' href="https://www.linkedin.com/in/olga-borovikova/">
+          <a className = 'linkedin-link' href="https://www.linkedin.com/in/olgabessonova-/">
             <i className="fa-brands fa-linkedin-in fa-2x"></i>
           </a>
         </div>
